@@ -84,6 +84,8 @@ android {
 }
 
 dependencies {
+    implementation(project(":features"))
+
     implementation(Libraries.kotlinStdlib)
     implementation(Libraries.appCompat)
     implementation(Libraries.swipeToRefresh)

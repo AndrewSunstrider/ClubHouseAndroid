@@ -6,5 +6,6 @@ pluginManagement {
 }
 
 include(
-    ":app"
+    ":app",
+    ":features"
 )
