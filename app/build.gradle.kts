@@ -91,6 +91,7 @@ dependencies {
     implementation(project(":platform:networking"))
     implementation(project(":platform:persistence"))
     implementation(project(":platform:shared-assets"))
+    implementation(project(":platform:shared-utilities"))
 
     implementation(Libraries.kotlinStdlib)
     implementation(Libraries.appCompat)
