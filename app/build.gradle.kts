@@ -86,6 +86,7 @@ android {
 dependencies {
     implementation(project(":features:auth"))
 
+    implementation(project(":platform:domain"))
     implementation(project(":platform:logger"))
 
     implementation(Libraries.kotlinStdlib)
