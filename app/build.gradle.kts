@@ -84,11 +84,24 @@ android {
 }
 
 dependencies {
-    implementation(Libraries.coreAndroidx)
+    implementation(Libraries.kotlinStdlib)
     implementation(Libraries.appCompat)
+    implementation(Libraries.swipeToRefresh)
+    implementation(Libraries.coreAndroidx)
+    implementation(Libraries.lifecycleViewModel)
+    implementation(Libraries.lifecycleExtensions)
+    implementation(Libraries.kodein)
+    implementation(Libraries.okhttp)
 
     androidTestImplementation(Libraries.jUnit)
+    androidTestImplementation(Libraries.androidTestCoreKtx)
     androidTestImplementation(Libraries.androidTestExtJunit)
     androidTestImplementation(Libraries.androidTestExtJunitKtx)
+    androidTestImplementation(Libraries.androidTestRunner)
+    androidTestImplementation(Libraries.androidTestRules)
+    androidTestImplementation(Libraries.androidTestCore)
     androidTestImplementation(Libraries.espressoCore)
+    androidTestImplementation(Libraries.barista)
+    androidTestImplementation(Libraries.assertjJava7)
+    androidTestImplementation(Libraries.mockWebServer)
 }
