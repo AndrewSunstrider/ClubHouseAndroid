@@ -88,6 +88,7 @@ dependencies {
 
     implementation(project(":platform:domain"))
     implementation(project(":platform:logger"))
+    implementation(project(":platform:networking"))
 
     implementation(Libraries.kotlinStdlib)
     implementation(Libraries.appCompat)
