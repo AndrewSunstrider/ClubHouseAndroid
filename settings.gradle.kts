@@ -11,5 +11,6 @@ include(
     ":platform:domain",
     ":platform:logger",
     ":platform:networking",
-    ":platform:persistence"
+    ":platform:persistence",
+    ":platform:shared-assets"
 )
