@@ -10,5 +10,6 @@ include(
     ":features:auth",
     ":platform:domain",
     ":platform:logger",
-    ":platform:networking"
+    ":platform:networking",
+    ":platform:persistence"
 )
