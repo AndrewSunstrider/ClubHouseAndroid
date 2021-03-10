@@ -1,25 +1,40 @@
+import configs.AndroidConfig
+import configs.KotlinConfig
+import configs.ProguardConfig
 import org.jetbrains.kotlin.gradle.tasks.KotlinCompile
 
 plugins {
-    id("com.android.application")
-    id("kotlin-android")
+    id(BuildPlugins.Ids.androidApplication)
+    id(BuildPlugins.Ids.kotlinAndroid)
+    id(BuildPlugins.Ids.keeper) version BuildPlugins.Versions.keeper
 }
 repositories {
     google()
     maven(url = "https://jitpack.io")
 }
 
+base.archivesBaseName = "clubhouseandroid-${Versioning.version.name}"
+
 android {
-    compileSdkVersion(30)
-    buildToolsVersion("30.0.1")
+    compileSdkVersion(AndroidConfig.compileSdk)
+    buildToolsVersion(AndroidConfig.buildToolsVersion)
 
     defaultConfig {
 
-        minSdkVersion(23)
-        targetSdkVersion(30)
+        minSdkVersion(AndroidConfig.minSdk)
+        targetSdkVersion(AndroidConfig.targetSdk)
 
-        applicationId = "com.andrewsunstrider.clubhouseandroid"
-        testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
+        applicationId = AndroidConfig.applicationId
+        testInstrumentationRunner = AndroidConfig.instrumentationTestRunner
+        versionCode = Versioning.version.code
+        versionName = Versioning.version.name
+
+        vectorDrawables.apply {
+            useSupportLibrary = true
+            generatedDensities(*(AndroidConfig.noGeneratedDensities))
+        }
+
+        resConfig("en")
 
         testBuildType = "release"
     }
@@ -45,6 +60,10 @@ android {
             isMinifyEnabled = true
             isShrinkResources = true
 
+            val proguardConfig = ProguardConfig("$rootDir/proguard")
+            proguardFiles(*(proguardConfig.customRules))
+            proguardFiles(getDefaultProguardFile(proguardConfig.androidRules))
+
             signingConfig = signingConfigs.findByName("release")
         }
     }
@@ -55,7 +74,7 @@ android {
     }
 
     tasks.withType<KotlinCompile> {
-        kotlinOptions.jvmTarget = "1.8"
+        kotlinOptions.jvmTarget = KotlinConfig.targetJVM
     }
 
     testOptions {
@@ -65,10 +84,11 @@ android {
 }
 
 dependencies {
-    implementation("androidx.core:core-ktx:1.3.2")
-    implementation("androidx.appcompat:appcompat:1.2.0")
-    implementation("com.google.android.material:material:1.3.0")
-    implementation("junit:junit:4.+")
-    implementation("androidx.test.ext:junit:1.1.2")
-    implementation("androidx.test.espresso:espresso-core:3.3.0")
+    implementation(Libraries.coreAndroidx)
+    implementation(Libraries.appCompat)
+
+    androidTestImplementation(Libraries.jUnit)
+    androidTestImplementation(Libraries.androidTestExtJunit)
+    androidTestImplementation(Libraries.androidTestExtJunitKtx)
+    androidTestImplementation(Libraries.espressoCore)
 }
