@@ -8,5 +8,6 @@ pluginManagement {
 include(
     ":app",
     ":features:auth",
+    ":platform:domain",
     ":platform:logger"
 )
