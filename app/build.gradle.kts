@@ -90,6 +90,7 @@ dependencies {
     implementation(project(":platform:logger"))
     implementation(project(":platform:networking"))
     implementation(project(":platform:persistence"))
+    implementation(project(":platform:rest-clubhouse"))
     implementation(project(":platform:shared-assets"))
     implementation(project(":platform:shared-utilities"))
 

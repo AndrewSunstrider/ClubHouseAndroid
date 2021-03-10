@@ -12,6 +12,7 @@ include(
     ":platform:logger",
     ":platform:networking",
     ":platform:persistence",
+    ":platform:rest-clubhouse",
     ":platform:shared-assets",
     ":platform:shared-utilities"
 )
