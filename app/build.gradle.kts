@@ -88,6 +88,7 @@ dependencies {
 
     implementation(project(":platform:domain"))
     implementation(project(":platform:logger"))
+    implementation(project(":platform:navigator"))
     implementation(project(":platform:networking"))
     implementation(project(":platform:persistence"))
     implementation(project(":platform:rest-clubhouse"))
