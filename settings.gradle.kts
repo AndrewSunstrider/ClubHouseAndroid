@@ -9,5 +9,6 @@ include(
     ":app",
     ":features:auth",
     ":platform:domain",
-    ":platform:logger"
+    ":platform:logger",
+    ":platform:networking"
 )
