@@ -86,6 +86,8 @@ android {
 dependencies {
     implementation(project(":features:auth"))
 
+    implementation(project(":platform:logger"))
+
     implementation(Libraries.kotlinStdlib)
     implementation(Libraries.appCompat)
     implementation(Libraries.swipeToRefresh)
