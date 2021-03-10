@@ -18,6 +18,7 @@ dependencies {
     implementation(Libraries.coroutinesCore)
     implementation(Libraries.kodein)
 
+    testImplementation(project(":platform:coroutines-testutils"))
     testImplementation(Libraries.jUnit)
     testImplementation(Libraries.assertj)
     testImplementation(Libraries.burster)
