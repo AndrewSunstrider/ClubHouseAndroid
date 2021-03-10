@@ -12,5 +12,6 @@ include(
     ":platform:logger",
     ":platform:networking",
     ":platform:persistence",
-    ":platform:shared-assets"
+    ":platform:shared-assets",
+    ":platform:shared-utilities"
 )
