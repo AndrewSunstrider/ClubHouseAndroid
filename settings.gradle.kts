@@ -10,6 +10,7 @@ include(
     ":features:auth",
     ":platform:domain",
     ":platform:logger",
+    ":platform:navigator",
     ":platform:networking",
     ":platform:persistence",
     ":platform:rest-clubhouse",
