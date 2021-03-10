@@ -84,7 +84,7 @@ android {
 }
 
 dependencies {
-    implementation(project(":features"))
+    implementation(project(":features:auth"))
 
     implementation(Libraries.kotlinStdlib)
     implementation(Libraries.appCompat)
