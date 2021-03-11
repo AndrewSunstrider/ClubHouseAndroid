@@ -1,7 +1,18 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
+
+    <!-- Base application theme. -->
+    <style name="ClubHouseAndroid" parent="Theme.MaterialComponents.Light.NoActionBar" />
+
+    <!-- region Auth-->
+    <style name="AuthTextViewsStyle">
+        <item name="fontFamily">@font/inter_500</item>
+        <item name="android:textSize">@dimen/text_size_20</item>
+        <item name="android:textColor">@color/black</item>
+        <item name="android:letterSpacing">0.05</item>
+    </style>
+
     <style name="AuthButtonsStyle">
-        <item name="android:textStyle">bold</item>
         <item name="android:gravity">center</item>
         <item name="fontFamily">@font/inter_400</item>
         <item name="android:textSize">@dimen/text_size_20</item>
@@ -16,8 +27,9 @@
         <item name="android:insetRight">@dimen/dp_0</item>
         <item name="android:stateListAnimator">@null</item>
         <item name="android:drawableEnd">@drawable/ic_baseline_arrow_right_alt_24</item>
-        <item name="backgroundTint">@drawable/bg_auth_buttons</item>
+        <item name="android:backgroundTint">@drawable/bg_auth_buttons</item>
         <item name="rippleColor">@color/white</item>
         <item name="android:clickable">true</item>
     </style>
+    <!-- endregion Auth-->
 </resources>

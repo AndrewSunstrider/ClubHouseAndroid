@@ -15,23 +15,6 @@ class Navigator(
         host.startActivity(next)
     }
 
-    fun navigateForResult(destination: Screen, callback: ActivityResultCallback<String?>) {
-        val next = Intent(host, find(destination))
-        val contract = DefineSearchQuery(next)
-        val launcher = host.registerForActivityResult(contract, callback)
-        launcher.launch(Unit)
-    }
-
-    fun returnWithResult(query: String) {
-        host.run {
-            val data = Intent().apply {
-                putExtra(DefineSearchQuery.DATA_KEY, query)
-            }
-            setResult(Activity.RESULT_OK, data)
-            finish()
-        }
-    }
-
     private fun find(target: Screen) =
         links[target] ?: throw UnsupportedNavigation(target)
 }
