@@ -16,7 +16,7 @@
         android:textSize="@dimen/text_size_24" />
 
     <com.google.android.material.textfield.TextInputLayout
-        android:id="@+id/phone_number_field"
+        android:id="@+id/phone_number_layout"
         android:layout_width="match_parent"
         android:layout_height="@dimen/dp_48"
         android:layout_marginStart="@dimen/dp_40"
@@ -28,7 +28,7 @@
         app:hintEnabled="false">
 
         <com.google.android.material.textfield.TextInputEditText
-            android:id="@+id/input_password_field"
+            android:id="@+id/phone_number_field"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:background="@drawable/bg_phone_number_field"
