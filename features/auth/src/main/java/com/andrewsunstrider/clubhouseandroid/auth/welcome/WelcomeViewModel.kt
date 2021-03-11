@@ -16,6 +16,7 @@ class WelcomeViewModel : ViewModel() {
         viewModelScope.launch {
             states.value = WelcomeScreenState.Launching
             try {
+                // TODO: 11.03.2021 Think about logic
                 states.value = WelcomeScreenState.Success
             } catch (_: Throwable) {
                 states.value = WelcomeScreenState.Failed

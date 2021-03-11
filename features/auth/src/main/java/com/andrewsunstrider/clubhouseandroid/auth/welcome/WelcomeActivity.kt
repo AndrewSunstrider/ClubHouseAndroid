@@ -42,10 +42,10 @@ class WelcomeActivity : AppCompatActivity(R.layout.activity_welcome), DIAware {
         when (state) {
             WelcomeScreenState.Idle -> launch()
             WelcomeScreenState.Success -> {
-                logger.i("Success -> Categories fetched, proceeding to facts")
+                logger.i("Success -> Welcome Activity running.")
             }
             WelcomeScreenState.Failed -> {
-                logger.e("Error -> $state")
+                logger.e("Error -> $state.")
             }
             else -> throw IllegalArgumentException("Unknown type for $state.")
         }

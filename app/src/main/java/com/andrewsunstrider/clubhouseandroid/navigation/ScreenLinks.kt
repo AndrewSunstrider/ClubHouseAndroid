@@ -1,7 +1,7 @@
 package com.andrewsunstrider.clubhouseandroid.navigation
 
 import android.app.Activity
-import com.andrewsunstrider.clubhouseandroid.auth.AuthActivity
+import com.andrewsunstrider.clubhouseandroid.auth.auth.AuthActivity
 import com.andrewsunstrider.clubhouseandroid.auth.welcome.WelcomeActivity
 import com.andrewsunstrider.clubhouseandroid.navigator.Screen
 
