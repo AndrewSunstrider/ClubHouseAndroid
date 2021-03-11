@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/yellow_A200_alpha_10"
+    android:gravity="center"
+    android:orientation="vertical">
+
+    <TextView
+        android:id="@+id/welcome"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="start"
+        android:layout_marginStart="@dimen/dp_48"
+        android:fontFamily="@font/inter_500"
+        android:letterSpacing="0.05"
+        android:text="@string/welcome"
+        android:textSize="@dimen/text_size_20"
+        android:textStyle="bold" />
+
+    <TextView
+        android:id="@+id/app_description"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/dp_48"
+        android:layout_marginTop="@dimen/dp_24"
+        android:layout_marginEnd="@dimen/dp_48"
+        android:fontFamily="@font/inter_500"
+        android:letterSpacing="0.05"
+        android:lineSpacingExtra="1dp"
+        android:text="@string/welcome_description"
+        android:textSize="@dimen/text_size_18" />
+
+    <TextView
+        android:id="@+id/welcome_words"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/dp_48"
+        android:layout_marginTop="@dimen/dp_24"
+        android:layout_marginEnd="@dimen/dp_48"
+        android:fontFamily="@font/inter_500"
+        android:letterSpacing="0.05"
+        android:lineSpacingExtra="1dp"
+        android:text="@string/welcome_words_from_official_developers"
+        android:textSize="@dimen/text_size_18" />
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/welcome_button"
+        style=""
+        android:layout_width="@dimen/dp_148"
+        android:layout_height="@dimen/dp_48"
+        android:layout_marginTop="@dimen/dp_40"
+        android:padding="@dimen/dp_8"
+        android:text="@string/got_it" />
+</LinearLayout>

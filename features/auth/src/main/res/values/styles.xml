@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <style name="AuthButtonsStyle">
+        <item name="android:textStyle">bold</item>
+        <item name="android:gravity">center</item>
+        <item name="fontFamily">@font/inter_400</item>
+        <item name="android:textSize">@dimen/text_size_20</item>
+        <item name="android:textColor">@color/white</item>
+        <item name="android:letterSpacing">0.15</item>
+        <item name="cornerRadius">@dimen/corner_radius_24</item>
+        <item name="android:textAppearance">?android:attr/textAppearanceLarge</item>
+        <item name="android:elevation">@dimen/dp_0</item>
+        <item name="android:insetBottom">@dimen/dp_0</item>
+        <item name="android:insetTop">@dimen/dp_0</item>
+        <item name="android:insetLeft">@dimen/dp_0</item>
+        <item name="android:insetRight">@dimen/dp_0</item>
+        <item name="android:stateListAnimator">@null</item>
+        <item name="android:drawableEnd">@drawable/ic_baseline_arrow_right_alt_24</item>
+        <item name="backgroundTint">@drawable/bg_auth_buttons</item>
+        <item name="rippleColor">@color/white</item>
+        <item name="android:clickable">true</item>
+    </style>
+</resources>

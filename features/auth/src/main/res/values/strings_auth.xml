@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="welcome">🥳 Welcome!</string>
+    <string name="welcome_description">You\'re watching on unofficial ClubHouse application for devices witch using 🤖 Android OS.</string>
+    <string name="welcome_words_from_official_developers">
+        Anyone can join with an invite from an exiting user -
+        or reserve your username and we\'ll text you if you have a friend on the app who can let you in.
+        We are so grateful you\'re here and can\'t wait to have you join! 🙏
+    </string>
+    <string name="got_it">Got it</string>
+</resources>
