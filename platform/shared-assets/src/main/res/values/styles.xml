@@ -18,7 +18,7 @@
         <item name="android:textSize">@dimen/text_size_20</item>
         <item name="android:textColor">@color/white</item>
         <item name="android:letterSpacing">0.15</item>
-        <item name="cornerRadius">@dimen/corner_radius_24</item>
+        <item name="cornerRadius">@dimen/dp_24</item>
         <item name="android:textAppearance">?android:attr/textAppearanceLarge</item>
         <item name="android:elevation">@dimen/dp_0</item>
         <item name="android:insetBottom">@dimen/dp_0</item>

@@ -12,10 +12,10 @@
         android:layout_height="wrap_content"
         android:layout_gravity="start"
         android:layout_marginStart="@dimen/dp_48"
+        android:fontFamily="@font/inter_700"
         android:text="@string/welcome"
         android:textAppearance="@style/AuthTextViewsStyle"
-        android:textSize="@dimen/text_size_24"
-        android:textStyle="bold" />
+        android:textSize="@dimen/text_size_24" />
 
     <TextView
         android:id="@+id/app_description"
@@ -44,7 +44,7 @@
         style="@style/AuthButtonsStyle"
         android:layout_width="@dimen/dp_148"
         android:layout_height="@dimen/dp_48"
-        android:layout_marginTop="@dimen/dp_40"
+        android:layout_marginTop="@dimen/dp_48"
         android:paddingStart="@dimen/dp_16"
         android:paddingEnd="@dimen/dp_16"
         android:text="@string/got_it" />

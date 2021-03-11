@@ -12,10 +12,9 @@
     <dimen name="dp_40">40dp</dimen>
     <dimen name="dp_44">44dp</dimen>
     <dimen name="dp_48">48dp</dimen>
+    <dimen name="dp_60">60dp</dimen>
+    <dimen name="dp_68">68dp</dimen>
     <dimen name="dp_148">148dp</dimen>
-
-    <!-- Corners sizes -->
-    <dimen name="corner_radius_24">24dp</dimen>
 
     <!-- Text sizes -->
     <dimen name="text_size_12">12sp</dimen>

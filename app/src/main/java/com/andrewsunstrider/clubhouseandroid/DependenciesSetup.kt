@@ -1,6 +1,7 @@
 package com.andrewsunstrider.clubhouseandroid
 
 import android.app.Application
+import com.andrewsunstrider.clubhouseandroid.auth.di.authModule
 import com.andrewsunstrider.clubhouseandroid.auth.di.welcomeModule
 import com.andrewsunstrider.clubhouseandroid.di.applicationModule
 import com.andrewsunstrider.clubhouseandroid.navigator.di.navigatorModule
@@ -19,6 +20,7 @@ class DependenciesSetup(private val app: Application) {
 
     private val modules = listOf(
         applicationModule,
+        authModule,
         navigatorModule,
         welcomeModule
     )

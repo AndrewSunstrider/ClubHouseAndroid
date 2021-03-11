@@ -17,7 +17,7 @@ import kotlinx.coroutines.launch
 import org.kodein.di.DIAware
 import org.kodein.di.instance
 
-class WelcomeActivity : AppCompatActivity(R.layout.activity_welcome), DIAware {
+class WelcomeActivity : AppCompatActivity(), DIAware {
 
     override val di by selfBind()
 
