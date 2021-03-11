@@ -16,7 +16,7 @@ class WelcomeViewModel : ViewModel() {
         viewModelScope.launch {
             states.value = WelcomeScreenState.Launching
             try {
-                // TODO: 11.03.2021 Think about logic
+                //I don't use it there, left it here as example how to work with states of the following activities.
                 states.value = WelcomeScreenState.Success
             } catch (_: Throwable) {
                 states.value = WelcomeScreenState.Failed
