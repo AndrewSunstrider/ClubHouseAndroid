@@ -1,15 +1,11 @@
-package com.andrewsunstrider.clubhouseandroid.auth.auth
+package com.andrewsunstrider.clubhouseandroid.auth.verification
 
 import android.os.Bundle
 import android.widget.Button
 import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.lifecycleScope
 import com.andrewsunstrider.clubhouseandroid.auth.R
-import com.andrewsunstrider.clubhouseandroid.auth.databinding.ActivityAuthBinding
-import com.andrewsunstrider.clubhouseandroid.auth.databinding.ActivityAuthBinding.inflate
-import com.andrewsunstrider.clubhouseandroid.auth.databinding.ActivityWelcomeBinding
-import com.andrewsunstrider.clubhouseandroid.auth.welcome.WelcomeScreenState
-import com.andrewsunstrider.clubhouseandroid.auth.welcome.WelcomeViewModel
+import com.andrewsunstrider.clubhouseandroid.auth.databinding.ActivityVerificationBinding
 import com.andrewsunstrider.clubhouseandroid.logger.Logger
 import com.andrewsunstrider.clubhouseandroid.navigator.Navigator
 import com.andrewsunstrider.clubhouseandroid.navigator.Screen
@@ -21,14 +17,14 @@ import kotlinx.coroutines.launch
 import org.kodein.di.DIAware
 import org.kodein.di.instance
 
-class AuthActivity : AppCompatActivity(), DIAware {
+class VerificationActivity : AppCompatActivity(), DIAware {
 
     override val di by selfBind()
 
-    private val viewBindings by viewBinding(ActivityAuthBinding::inflate)
+    private val viewBindings by viewBinding(ActivityVerificationBinding::inflate)
     private val logger by instance<Logger>()
     private val navigator by instance<Navigator>()
-    private val viewModel by instance<AuthViewModel>()
+    private val viewModel by instance<VerificationViewModel>()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -42,13 +38,13 @@ class AuthActivity : AppCompatActivity(), DIAware {
         }
     }
 
-    private fun render(state: AuthScreenState) {
+    private fun render(state: VerificationScreenState) {
         when (state) {
-            AuthScreenState.Idle -> launch()
-            AuthScreenState.Success -> {
+            VerificationScreenState.Idle -> launch()
+            VerificationScreenState.Success -> {
                 logger.i("Success -> Welcome Activity running.")
             }
-            AuthScreenState.Failed -> {
+            VerificationScreenState.Failed -> {
                 logger.e("Error -> $state.")
             }
             else -> throw IllegalArgumentException("Unknown type for $state.")
@@ -60,13 +56,6 @@ class AuthActivity : AppCompatActivity(), DIAware {
     }
 
     private fun initListeners() {
-        val gotItBtn = findViewById<Button>(R.id.auth_next_btn)
-        gotItBtn.setOnClickListener { proceedToVerification() }
-    }
 
-    private fun proceedToVerification() {
-        navigator.navigateTo(Screen.Verification)
-        overridePendingTransition(android.R.anim.fade_in, android.R.anim.fade_out)
-        finish()
     }
 }

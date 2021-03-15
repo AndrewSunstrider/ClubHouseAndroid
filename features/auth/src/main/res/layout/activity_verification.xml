@@ -8,15 +8,18 @@
     android:orientation="vertical">
 
     <TextView
-        android:id="@+id/phone_title"
+        android:id="@+id/verification_title"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="@string/enter_your_phone"
+        android:layout_marginStart="@dimen/dp_40"
+        android:layout_marginEnd="@dimen/dp_40"
+        android:gravity="center"
+        android:text="@string/enter_verification_code"
         android:textAppearance="@style/AuthTextViewsStyle"
-        android:textSize="@dimen/text_size_24" />
+        android:textSize="@dimen/text_size_20" />
 
     <com.google.android.material.textfield.TextInputLayout
-        android:id="@+id/phone_number_layout"
+        android:id="@+id/verification_layout"
         android:layout_width="match_parent"
         android:layout_height="@dimen/dp_48"
         android:layout_marginStart="@dimen/dp_40"
@@ -28,12 +31,13 @@
         app:hintEnabled="false">
 
         <com.google.android.material.textfield.TextInputEditText
-            android:id="@+id/phone_number_field"
+            android:id="@+id/verification_field"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:background="@drawable/bg_phone_number_field"
             android:fontFamily="@font/inter_500"
-            android:hint="@string/phone_number"
+            android:gravity="center"
+            android:hint="@string/enter_code"
             android:inputType="phone"
             android:letterSpacing="0.01"
             android:maxLines="1"
@@ -43,26 +47,39 @@
     </com.google.android.material.textfield.TextInputLayout>
 
     <TextView
-        android:id="@+id/number_entering_attention"
+        android:id="@+id/verification_attention"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="@dimen/dp_40"
-        android:layout_marginTop="@dimen/dp_68"
+        android:layout_marginTop="@dimen/dp_24"
         android:layout_marginEnd="@dimen/dp_40"
         android:gravity="center"
         android:lineSpacingExtra="1dp"
-        android:text="@string/number_entering_attention"
+        android:text="@string/verification_code_attention"
         android:textAppearance="@style/AuthTextViewsStyle"
-        android:textSize="@dimen/text_size_12" />
-
+        android:textSize="@dimen/text_size_14" />
 
     <com.google.android.material.button.MaterialButton
-        android:id="@+id/auth_next_btn"
+        android:id="@+id/verification_next_btn"
         style="@style/AuthButtonsStyle"
         android:layout_width="@dimen/dp_148"
         android:layout_height="@dimen/dp_48"
         android:layout_marginTop="@dimen/dp_40"
+        android:enabled="false"
         android:paddingStart="@dimen/dp_16"
         android:paddingEnd="@dimen/dp_16"
         android:text="@string/next" />
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/verification_resend_btn"
+        style="@style/AuthButtonsStyle"
+        android:layout_width="@dimen/dp_148"
+        android:layout_height="@dimen/dp_48"
+        android:layout_marginTop="@dimen/dp_40"
+        android:drawableEnd="@drawable/ic_baseline_refresh_24"
+        android:enabled="false"
+        android:paddingStart="@dimen/dp_16"
+        android:paddingEnd="@dimen/dp_16"
+        android:text="@string/resend_code"
+        android:textSize="@dimen/text_size_12" />
 </LinearLayout>

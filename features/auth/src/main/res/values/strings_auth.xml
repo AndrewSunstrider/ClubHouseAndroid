@@ -20,5 +20,14 @@
     <string name="phone_number">Phone number</string>
     <!-- endregion Auth-->
 
+    <!-- region Verification-->
+    <string name="enter_verification_code">Enter the code ClubHouse just texted you</string>
+    <string name="verification_code_attention">
+         Didn\'t receive it? Tap on <b>Resend code</b> button!
+    </string>
+    <string name="enter_code">Enter code</string>
+    <string name="resend_code">Resend code</string>
+    <!-- endregion Verification-->
+
     <string name="next">Next</string>
 </resources>

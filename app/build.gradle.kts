@@ -54,6 +54,8 @@ android {
             applicationIdSuffix = ".debug"
             versionNameSuffix = "-DEBUG"
             isTestCoverageEnabled = true
+            buildConfigField("String", "CLUBHOUSE_API_URL", "\"${project.evaluateAPIUrl()}\"")
+            resValue("bool", "clear_networking_traffic_enabled", "${project.evaluateTestMode()}")
         }
 
         getByName("release") {
@@ -64,6 +66,8 @@ android {
             proguardFiles(*(proguardConfig.customRules))
             proguardFiles(getDefaultProguardFile(proguardConfig.androidRules))
 
+            buildConfigField("String", "CLUBHOUSE_API_URL", "\"${project.evaluateAPIUrl()}\"")
+            resValue("bool", "clear_networking_traffic_enabled", "${project.evaluateTestMode()}")
             signingConfig = signingConfigs.findByName("release")
         }
     }
@@ -116,3 +120,9 @@ dependencies {
     androidTestImplementation(Libraries.assertjJava7)
     androidTestImplementation(Libraries.mockWebServer)
 }
+
+fun Project.evaluateTestMode(): Boolean =
+    properties["testMode"]?.let { true } ?: false
+
+fun Project.evaluateAPIUrl(): String =
+    properties["testMode"]?.let { "http://localhost:4242" } ?: "https://www.clubhouseapi.com/api"
