@@ -2,14 +2,12 @@ package com.andrewsunstrider.clubhouseandroid.auth.auth
 
 import android.os.Bundle
 import android.widget.Button
+import android.widget.EditText
 import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.lifecycleScope
 import com.andrewsunstrider.clubhouseandroid.auth.R
 import com.andrewsunstrider.clubhouseandroid.auth.databinding.ActivityAuthBinding
 import com.andrewsunstrider.clubhouseandroid.auth.databinding.ActivityAuthBinding.inflate
-import com.andrewsunstrider.clubhouseandroid.auth.databinding.ActivityWelcomeBinding
-import com.andrewsunstrider.clubhouseandroid.auth.welcome.WelcomeScreenState
-import com.andrewsunstrider.clubhouseandroid.auth.welcome.WelcomeViewModel
 import com.andrewsunstrider.clubhouseandroid.logger.Logger
 import com.andrewsunstrider.clubhouseandroid.navigator.Navigator
 import com.andrewsunstrider.clubhouseandroid.navigator.Screen
@@ -60,8 +58,23 @@ class AuthActivity : AppCompatActivity(), DIAware {
     }
 
     private fun initListeners() {
-        val gotItBtn = findViewById<Button>(R.id.auth_next_btn)
-        gotItBtn.setOnClickListener { proceedToVerification() }
+        val nextBtn = findViewById<Button>(R.id.auth_next_btn)
+
+        nextBtn.setOnClickListener {
+            viewModel.getAuth(getCleanPhoneNumber())
+
+            logger.i("Number is ${getCleanPhoneNumber()}")
+            logger.i("GetAuth results: ${viewModel.getAuth(getCleanPhoneNumber())}")
+
+            proceedToVerification()
+        }
+    }
+
+    private fun getCleanPhoneNumber(): String {
+        val phoneInput = findViewById<EditText>(R.id.phone_number_field)
+
+        val number = phoneInput.text.toString().replace("[^\\d]".toRegex(), "")
+        return "+$number"
     }
 
     private fun proceedToVerification() {

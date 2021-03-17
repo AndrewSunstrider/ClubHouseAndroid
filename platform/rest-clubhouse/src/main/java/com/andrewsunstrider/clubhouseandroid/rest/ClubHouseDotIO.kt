@@ -10,4 +10,8 @@ interface ClubHouseDotIO {
         @Query("phoneNumber") phoneNumber: String,
         @Query("verificationCode") verificationCode: String
     )
+
+    companion object {
+        const val API_URL = "https://www.clubhouseapi.com/api"
+    }
 }
