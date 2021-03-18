@@ -3,5 +3,10 @@ package com.andrewsunstrider.clubhouseandroid.persistence
 import com.andrewsunstrider.clubhouseandroid.domain.services.AuthService
 
 internal class AuthInfrastructure : AuthService {
-    override suspend fun getAuth(phoneNumber: String) {}
+
+    private var phone: String? = null
+
+    override suspend fun getAuth(phoneNumber: String) {
+        phone = phoneNumber
+    }
 }

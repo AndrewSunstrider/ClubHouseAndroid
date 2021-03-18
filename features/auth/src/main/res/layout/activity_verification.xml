@@ -65,7 +65,6 @@
         android:layout_width="@dimen/dp_148"
         android:layout_height="@dimen/dp_48"
         android:layout_marginTop="@dimen/dp_40"
-        android:enabled="false"
         android:paddingStart="@dimen/dp_16"
         android:paddingEnd="@dimen/dp_16"
         android:text="@string/next" />
@@ -77,7 +76,6 @@
         android:layout_height="@dimen/dp_48"
         android:layout_marginTop="@dimen/dp_40"
         android:drawableEnd="@drawable/ic_baseline_refresh_24"
-        android:enabled="false"
         android:paddingStart="@dimen/dp_16"
         android:paddingEnd="@dimen/dp_16"
         android:text="@string/resend_code"

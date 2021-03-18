@@ -125,4 +125,4 @@ fun Project.evaluateTestMode(): Boolean =
     properties["testMode"]?.let { true } ?: false
 
 fun Project.evaluateAPIUrl(): String =
-    properties["testMode"]?.let { "http://localhost:4242" } ?: "https://www.clubhouseapi.com/api"
+    properties["testMode"]?.let { "http://localhost:4242" } ?: "https://www.clubhouseapi.com/api/"

@@ -7,11 +7,10 @@ interface ClubHouseDotIO {
 
     @POST("/start_phone_number_auth")
     suspend fun auth(
-        @Query("phoneNumber") phoneNumber: String,
-        @Query("verificationCode") verificationCode: String
+        @Query("phoneNumber") phoneNumber: String
     )
 
     companion object {
-        const val API_URL = "https://www.clubhouseapi.com/api"
+        const val API_URL = "https://www.clubhouseapi.com/api/"
     }
 }
