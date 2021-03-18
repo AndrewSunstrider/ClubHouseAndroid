@@ -117,7 +117,7 @@ dependencies {
     androidTestImplementation(Libraries.androidTestCore)
     androidTestImplementation(Libraries.espressoCore)
     androidTestImplementation(Libraries.barista)
-    androidTestImplementation(Libraries.assertjJava7)
+//    androidTestImplementation(Libraries.assertjJava7)
     androidTestImplementation(Libraries.mockWebServer)
 }
 
