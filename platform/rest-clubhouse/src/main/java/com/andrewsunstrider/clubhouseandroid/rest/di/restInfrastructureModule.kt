@@ -1,15 +1,14 @@
 package com.andrewsunstrider.clubhouseandroid.rest.di
 
+import com.andrewsunstrider.clubhouseandroid.domain.services.AuthService
 import com.andrewsunstrider.clubhouseandroid.networking.RetrofitBuilder
 import com.andrewsunstrider.clubhouseandroid.rest.APIRequestInterceptor
+import com.andrewsunstrider.clubhouseandroid.rest.AuthInfrastructure
 import com.andrewsunstrider.clubhouseandroid.rest.ClubHouseDotIO
 import okhttp3.Interceptor
 import okhttp3.OkHttpClient
 import okhttp3.logging.HttpLoggingInterceptor
-import org.kodein.di.DI
-import org.kodein.di.bind
-import org.kodein.di.instance
-import org.kodein.di.singleton
+import org.kodein.di.*
 
 val restInfrastructureModule = DI.Module("rest-infrastructure") {
 
@@ -32,5 +31,11 @@ val restInfrastructureModule = DI.Module("rest-infrastructure") {
         )
 
         retrofit.create(ClubHouseDotIO::class.java)
+    }
+
+    bind<AuthService>() with provider {
+        AuthInfrastructure(
+            rest = instance()
+        )
     }
 }
