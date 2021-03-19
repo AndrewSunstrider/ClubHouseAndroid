@@ -39,15 +39,6 @@ android {
         testBuildType = "release"
     }
 
-    signingConfigs {
-        create("release") {
-            storeFile = rootProject.file("signing/dotanuki-demos.jks")
-            storePassword = "dotanuki"
-            keyAlias = "dotanuki-alias"
-            keyPassword = "dotanuki"
-        }
-    }
-
     buildTypes {
 
         getByName("debug") {
@@ -117,7 +108,7 @@ dependencies {
     androidTestImplementation(Libraries.androidTestCore)
     androidTestImplementation(Libraries.espressoCore)
     androidTestImplementation(Libraries.barista)
-//    androidTestImplementation(Libraries.assertjJava7)
+    androidTestImplementation(Libraries.assertjJava7)
     androidTestImplementation(Libraries.mockWebServer)
 }
 
