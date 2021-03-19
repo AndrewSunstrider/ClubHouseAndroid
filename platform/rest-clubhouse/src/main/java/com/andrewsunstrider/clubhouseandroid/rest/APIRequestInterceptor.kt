@@ -22,18 +22,19 @@ class APIRequestInterceptor : Interceptor {
         const val INSTABUG_KEY = "4e53155da9b00728caa5249f2e35d6b3"
         const val AMPLITUDE_KEY = "9098a21a950e7cb0933fb5b30affe5be"
 
+        var deviceID: String = UUID.randomUUID().toString().toUpperCase(Locale.ROOT)
     }
 
     override fun intercept(chain: Interceptor.Chain): Response {
         val builder = chain.request().newBuilder().apply {
 
-            addHeader("CH-Languages", Locale.getAvailableLocales()[0].toLanguageTag())
+            addHeader("CH-Languages", Locale.getAvailableLocales().toString())
             addHeader("CH-Locale", Locale.getAvailableLocales()[0].toLanguageTag().replace('-', '_'))
             addHeader("Accept", "application/json")
             addHeader("CH-AppBuild", API_BUILD_ID)
             addHeader("CH-AppVersion", API_BUILD_VERSION)
             addHeader("User-Agent", API_UA)
-            addHeader("CH-DeviceId", "device_id")
+            addHeader("CH-DeviceId", deviceID)
 
         }
 

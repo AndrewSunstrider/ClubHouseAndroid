@@ -1,6 +1,5 @@
 import configs.AndroidConfig
 import configs.KotlinConfig
-import configs.ProguardConfig
 import org.jetbrains.kotlin.gradle.tasks.KotlinCompile
 
 plugins {
@@ -53,9 +52,6 @@ android {
             isMinifyEnabled = true
             isShrinkResources = true
 
-            val proguardConfig = ProguardConfig("$rootDir/proguard")
-            proguardFiles(*(proguardConfig.customRules))
-            proguardFiles(getDefaultProguardFile(proguardConfig.androidRules))
 
             buildConfigField("String", "CLUBHOUSE_API_URL", "\"${project.evaluateAPIUrl()}\"")
             resValue("bool", "clear_networking_traffic_enabled", "${project.evaluateTestMode()}")
