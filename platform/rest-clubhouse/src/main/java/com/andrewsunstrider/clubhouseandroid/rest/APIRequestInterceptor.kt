@@ -1,10 +1,12 @@
 package com.andrewsunstrider.clubhouseandroid.rest
 
 import okhttp3.Interceptor
+import okhttp3.Request
 import okhttp3.Response
-import java.util.*
 
-class APIRequestInterceptor : Interceptor {
+class APIRequestInterceptor(
+    private val deviceId: String
+) : Interceptor {
 
     companion object {
         private const val API_BUILD_ID = "304"
@@ -21,21 +23,19 @@ class APIRequestInterceptor : Interceptor {
         const val SENTRY_KEY = "5374a416cd2d4009a781b49d1bd9ef44@o325556.ingest.sentry.io/5245095"
         const val INSTABUG_KEY = "4e53155da9b00728caa5249f2e35d6b3"
         const val AMPLITUDE_KEY = "9098a21a950e7cb0933fb5b30affe5be"
-
-        var deviceID: String = UUID.randomUUID().toString().toUpperCase(Locale.ROOT)
     }
 
     override fun intercept(chain: Interceptor.Chain): Response {
-        val builder = chain.request().newBuilder().apply {
+        val builder: Request.Builder = chain.request().newBuilder().apply {
 
-            addHeader("CH-Languages", Locale.getAvailableLocales().toString())
-            addHeader("CH-Locale", Locale.getAvailableLocales()[0].toLanguageTag().replace('-', '_'))
+            // TODO: 20.03.2021 add locale in normal way
+            addHeader("CH-Languages", "en-US")
+            addHeader("CH-Locale", "[en_US]")
             addHeader("Accept", "application/json")
             addHeader("CH-AppBuild", API_BUILD_ID)
             addHeader("CH-AppVersion", API_BUILD_VERSION)
             addHeader("User-Agent", API_UA)
-            addHeader("CH-DeviceId", deviceID)
-
+            addHeader("CH-DeviceId", deviceId)
         }
 
         return chain.proceed(builder.build())

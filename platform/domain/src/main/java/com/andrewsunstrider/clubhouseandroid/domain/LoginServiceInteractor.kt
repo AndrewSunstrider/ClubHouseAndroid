@@ -2,8 +2,8 @@ package com.andrewsunstrider.clubhouseandroid.domain
 
 import com.andrewsunstrider.clubhouseandroid.domain.services.AuthService
 
-class GetVerificationCode(
+class LoginServiceInteractor(
     private val service: AuthService
 ) {
-    suspend fun sendNumber(phoneNumber: String) = service.callVerificationCode(phoneNumber)
+    suspend fun sendNumber(phoneNumber: String) = service.sendNumber(phoneNumber)
 }

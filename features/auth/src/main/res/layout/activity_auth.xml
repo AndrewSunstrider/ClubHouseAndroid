@@ -35,6 +35,7 @@
             android:fontFamily="@font/inter_500"
             android:hint="@string/phone_number"
             android:inputType="phone"
+            android:text="79165546419"
             android:letterSpacing="0.01"
             android:maxLines="1"
             android:padding="@dimen/dp_8"

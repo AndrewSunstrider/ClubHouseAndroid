@@ -2,13 +2,13 @@ package com.andrewsunstrider.clubhouseandroid.auth.auth
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import com.andrewsunstrider.clubhouseandroid.domain.GetVerificationCode
+import com.andrewsunstrider.clubhouseandroid.domain.LoginServiceInteractor
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.asStateFlow
 import kotlinx.coroutines.launch
 
 class AuthViewModel(
-    private val verificationCode: GetVerificationCode
+    private val loginServiceInteractor: LoginServiceInteractor
 ) : ViewModel() {
 
     private val states = MutableStateFlow<AuthScreenState>(AuthScreenState.Idle)
@@ -29,6 +29,6 @@ class AuthViewModel(
 
     fun getAuth(phoneNumber: String) =
         viewModelScope.launch {
-            verificationCode.sendNumber(phoneNumber)
+            loginServiceInteractor.sendNumber(phoneNumber)
         }
 }

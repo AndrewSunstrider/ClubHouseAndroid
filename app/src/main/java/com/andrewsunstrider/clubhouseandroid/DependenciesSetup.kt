@@ -7,10 +7,11 @@ import com.andrewsunstrider.clubhouseandroid.auth.di.welcomeModule
 import com.andrewsunstrider.clubhouseandroid.di.applicationModule
 import com.andrewsunstrider.clubhouseandroid.navigator.di.navigatorModule
 import com.andrewsunstrider.clubhouseandroid.persistence.di.persistenceModule
-import com.andrewsunstrider.clubhouseandroid.rest.di.restInfrastructureModule
+import com.andrewsunstrider.clubhouseandroid.rest.di.RestInfrastructureModule
 import org.kodein.di.DI
 import org.kodein.di.bind
 import org.kodein.di.singleton
+import java.util.*
 
 class DependenciesSetup(private val app: Application) {
 
@@ -21,12 +22,17 @@ class DependenciesSetup(private val app: Application) {
         }
     }
 
+    // TODO: 20.03.2021 save in SharedPref for example
+    private val deviceID by lazy {
+        UUID.randomUUID().toString().toUpperCase(Locale.getDefault())
+    }
+
     private val modules = listOf(
         applicationModule,
         authModule,
         navigatorModule,
         persistenceModule,
-        restInfrastructureModule,
+        RestInfrastructureModule(deviceID).diModule,
         verificationModule,
         welcomeModule
     )
