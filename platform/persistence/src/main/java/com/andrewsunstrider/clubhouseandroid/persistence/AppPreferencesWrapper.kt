@@ -5,13 +5,49 @@ import com.andrewsunstrider.clubhouseandroid.domain.AuthProvider
 
 class AppPreferencesWrapper(private val prefs: SharedPreferences) : AuthProvider {
 
-    override fun getUserID(): String = prefs.getString(USER_ID, EMPTY_STRING)!!
+    override fun getUserID(): String {
+        return prefs.getString(USER_ID, EMPTY_STRING)!!
+    }
 
-    override fun getDeviceID(): String = prefs.getString(DEVICE_ID, EMPTY_STRING)!!
+    override fun getDeviceID(): String {
+        return prefs.getString(DEVICE_ID, EMPTY_STRING)!!
+    }
 
-    override fun getUserToken(): String = prefs.getString(USER_TOKEN, ANONYMOUS_TOKEN)!!
+    override fun getUserToken(): String {
+        return  prefs.getString(USER_TOKEN, ANONYMOUS_TOKEN)!!
+    }
 
-    override fun isWaitlisted(): Boolean = prefs.getBoolean(WAITLISTED, EMPTY_BOOLEAN)
+    override fun getIsWaitlisted(): Boolean {
+        return prefs.getBoolean(WAITLISTED, EMPTY_BOOLEAN)
+    }
+
+    override fun saveUserID() {
+        prefs.edit().apply {
+            putString(USER_ID, EMPTY_STRING)
+            apply()
+        }
+    }
+
+    override fun saveDeviceID() {
+        prefs.edit().apply {
+            putString(DEVICE_ID, EMPTY_STRING)
+            apply()
+        }
+    }
+
+    override fun saveUserToken() {
+        prefs.edit().apply {
+            putString(USER_TOKEN, EMPTY_STRING)
+            apply()
+        }
+    }
+
+    override fun saveIsWaitListed() {
+        prefs.edit().apply {
+            putBoolean(WAITLISTED, EMPTY_BOOLEAN)
+            apply()
+        }
+    }
 
     companion object {
         const val USER_ID = "user_id"

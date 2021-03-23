@@ -8,5 +8,13 @@ interface AuthProvider {
 
     fun getUserToken(): String
 
-    fun isWaitlisted(): Boolean
+    fun getIsWaitlisted(): Boolean
+
+    fun saveUserID()
+
+    fun saveDeviceID()
+
+    fun saveUserToken()
+
+    fun saveIsWaitListed()
 }
