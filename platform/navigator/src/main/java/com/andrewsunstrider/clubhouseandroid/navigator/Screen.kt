@@ -10,5 +10,6 @@ sealed class Screen {
         Welcome -> "Welcome Screen"
         Auth -> "Authorization Screen"
         Verification -> "VerificationScreen"
+        else -> throw IllegalArgumentException("Unknown screen!")
     }
 }
