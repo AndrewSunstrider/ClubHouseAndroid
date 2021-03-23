@@ -1,6 +1,6 @@
 package com.andrewsunstrider.clubhouseandroid.domain
 
-interface AuthProvider {
+interface AuthorisationProvider {
 
     fun getUserID(): String
 

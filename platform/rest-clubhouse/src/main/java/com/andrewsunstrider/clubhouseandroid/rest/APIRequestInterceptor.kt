@@ -1,10 +1,21 @@
 package com.andrewsunstrider.clubhouseandroid.rest
 
+import com.andrewsunstrider.clubhouseandroid.domain.AuthorisationProvider
+import com.andrewsunstrider.clubhouseandroid.rest.di.restInfrastructureModule
 import okhttp3.Interceptor
 import okhttp3.Request
 import okhttp3.Response
+import org.kodein.di.DI
+import org.kodein.di.DIAware
+import org.kodein.di.instance
 
-class APIRequestInterceptor : Interceptor {
+class APIRequestInterceptor : Interceptor, DIAware {
+
+    override val di: DI = DI.lazy {
+        import(restInfrastructureModule)
+    }
+
+    private val preferences by instance<AuthorisationProvider>()
 
     companion object {
         private const val API_BUILD_ID = "304"
@@ -26,6 +37,8 @@ class APIRequestInterceptor : Interceptor {
     override fun intercept(chain: Interceptor.Chain): Response {
         val builder: Request.Builder = chain.request().newBuilder().apply {
 
+            val deviceID = preferences.getDeviceID()
+
             // TODO: 20.03.2021 add locale in normal way
             addHeader("CH-Languages", "en-US")
             addHeader("CH-Locale", "[en_US]")
@@ -33,8 +46,7 @@ class APIRequestInterceptor : Interceptor {
             addHeader("CH-AppBuild", API_BUILD_ID)
             addHeader("CH-AppVersion", API_BUILD_VERSION)
             addHeader("User-Agent", API_UA)
-//            val value = preferences.deviceID!!
-//            addHeader("CH-DeviceId", value)
+            addHeader("CH-DeviceId", deviceID)
         }
 
         return chain.proceed(builder.build())
