@@ -20,7 +20,9 @@ val restInfrastructureModule = DI.Module("rest-infrastructure") {
             level = HttpLoggingInterceptor.Level.BODY
         }
 
-        val clubhouseInterceptor: Interceptor = APIRequestInterceptor()
+        val clubhouseInterceptor: Interceptor = APIRequestInterceptor(
+            preferences = instance()
+        )
 
         val okHttp = OkHttpClient.Builder()
             .addInterceptor(httpLoggingInterceptor)

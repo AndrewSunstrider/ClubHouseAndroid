@@ -8,11 +8,9 @@ interface AuthorisationProvider {
 
     fun getUserToken(): String
 
-    fun getIsWaitlisted(): Boolean
+    fun isWaitlisted(): Boolean
 
     fun saveUserID()
-
-    fun saveDeviceID()
 
     fun saveUserToken()
 

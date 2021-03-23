@@ -11,29 +11,32 @@ class AuthorisationInfrastructure(private val prefs: SharedPreferences) : Author
     }
 
     override fun getDeviceID(): String {
-        return prefs.getString(DEVICE_ID, EMPTY_STRING)!!
+        val deviceId = prefs.getString(DEVICE_ID, EMPTY_STRING)!!
+        return when {
+            deviceId.isNotEmpty() -> deviceId
+            else -> {
+                val newDeviceID = UUID.randomUUID().toString().toUpperCase(Locale.ROOT)
+
+                prefs.edit().apply {
+                    putString(DEVICE_ID, newDeviceID)
+                    apply()
+                }
+                newDeviceID
+            }
+        }
     }
 
     override fun getUserToken(): String {
-        return  prefs.getString(USER_TOKEN, ANONYMOUS_TOKEN)!!
+        return prefs.getString(USER_TOKEN, ANONYMOUS_TOKEN)!!
     }
 
-    override fun getIsWaitlisted(): Boolean {
+    override fun isWaitlisted(): Boolean {
         return prefs.getBoolean(WAITLISTED, EMPTY_BOOLEAN)
     }
 
     override fun saveUserID() {
         prefs.edit().apply {
             putString(USER_ID, EMPTY_STRING)
-            apply()
-        }
-    }
-
-    override fun saveDeviceID() {
-        val deviceID = UUID.randomUUID().toString().toUpperCase(Locale.ROOT)
-
-        prefs.edit().apply {
-            putString(DEVICE_ID, deviceID)
             apply()
         }
     }
@@ -52,7 +55,7 @@ class AuthorisationInfrastructure(private val prefs: SharedPreferences) : Author
         }
     }
 
-    companion object {
+    private companion object {
         const val USER_ID = "user_id"
         const val DEVICE_ID = "device_id"
         const val USER_TOKEN = "user_token"
