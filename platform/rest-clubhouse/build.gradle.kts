@@ -1,13 +1,13 @@
 
 plugins {
-    id(BuildPlugins.Ids.kotlinModule)
-    id(BuildPlugins.Ids.kotlinxSerialization)
+    id(BuildPlugins.Ids.androidModule)
 }
 
 dependencies {
     implementation(project(":platform:logger"))
     implementation(project(":platform:domain"))
     implementation(project(":platform:networking"))
+    implementation(project(":platform:persistence"))
 
     implementation(Libraries.kotlinStdlib)
     implementation(Libraries.okhttp)

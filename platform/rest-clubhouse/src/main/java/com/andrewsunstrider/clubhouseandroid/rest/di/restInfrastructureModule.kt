@@ -15,7 +15,6 @@ class RestInfrastructureModule(
     deviceId: String
 ) {
 
-
     @ExperimentalSerializationApi
     val diModule = DI.Module("rest-infrastructure") {
 
@@ -26,6 +25,7 @@ class RestInfrastructureModule(
             }
 
             val clubhouseInterceptor: Interceptor = APIRequestInterceptor(
+                di = instance(),
                 deviceId = deviceId
             )
 
