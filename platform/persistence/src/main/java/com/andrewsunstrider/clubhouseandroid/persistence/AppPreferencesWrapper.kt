@@ -2,6 +2,7 @@ package com.andrewsunstrider.clubhouseandroid.persistence
 
 import android.content.SharedPreferences
 import com.andrewsunstrider.clubhouseandroid.domain.AuthProvider
+import java.util.*
 
 class AppPreferencesWrapper(private val prefs: SharedPreferences) : AuthProvider {
 
@@ -29,8 +30,10 @@ class AppPreferencesWrapper(private val prefs: SharedPreferences) : AuthProvider
     }
 
     override fun saveDeviceID() {
+        val deviceID = UUID.randomUUID().toString().toUpperCase(Locale.ROOT)
+
         prefs.edit().apply {
-            putString(DEVICE_ID, EMPTY_STRING)
+            putString(DEVICE_ID, deviceID)
             apply()
         }
     }
