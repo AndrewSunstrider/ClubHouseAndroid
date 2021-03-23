@@ -1,18 +1,10 @@
 package com.andrewsunstrider.clubhouseandroid.rest
 
-import com.andrewsunstrider.clubhouseandroid.persistence.AppPreferencesWrapper
 import okhttp3.Interceptor
 import okhttp3.Request
 import okhttp3.Response
-import org.kodein.di.DI
-import org.kodein.di.DIAware
-import org.kodein.di.instance
 
-class APIRequestInterceptor(
-    private val deviceId: String, override val di: DI
-) : Interceptor, DIAware {
-
-    private val preferences by di.instance<AppPreferencesWrapper>()
+class APIRequestInterceptor : Interceptor {
 
     companion object {
         private const val API_BUILD_ID = "304"
@@ -41,8 +33,8 @@ class APIRequestInterceptor(
             addHeader("CH-AppBuild", API_BUILD_ID)
             addHeader("CH-AppVersion", API_BUILD_VERSION)
             addHeader("User-Agent", API_UA)
-            val value = preferences.deviceID!!
-            addHeader("CH-DeviceId", value)
+//            val value = preferences.deviceID!!
+//            addHeader("CH-DeviceId", value)
         }
 
         return chain.proceed(builder.build())

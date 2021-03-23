@@ -1,52 +1,25 @@
 package com.andrewsunstrider.clubhouseandroid.persistence
 
-import android.app.Application
-import android.content.Context.MODE_PRIVATE
 import android.content.SharedPreferences
-import java.util.*
+import com.andrewsunstrider.clubhouseandroid.domain.AuthProvider
 
-class AppPreferencesWrapper(private val app: Application) {
+class AppPreferencesWrapper(private val prefs: SharedPreferences) : AuthProvider {
 
-    var deviceID: String? = null
-    var userID: String? = null
-    var userToken: String? = null
-    var isWaitlisted = false
+    override fun getUserID(): String = prefs.getString(USER_ID, EMPTY_STRING)!!
 
-    init {
-        load()
-    }
+    override fun getDeviceID(): String = prefs.getString(DEVICE_ID, EMPTY_STRING)!!
 
-    fun load() {
-        val prefs: SharedPreferences = preferences
-        deviceID = prefs.getString("device_id", null)
-        userID = prefs.getString("user_id", null)
-        userToken = prefs.getString("user_token", null)
-        isWaitlisted = prefs.getBoolean("waitlisted", false)
-        if (deviceID == null) {
-            deviceID = UUID.randomUUID().toString().toUpperCase(Locale.getDefault())
-            write()
-        }
-    }
+    override fun getUserToken(): String = prefs.getString(USER_TOKEN, ANONYMOUS_TOKEN)!!
 
-    fun write() {
-        preferences.edit()
-            .putString("device_id", deviceID)
-            .putString("user_id", userID)
-            .putString("user_token", userToken)
-            .putBoolean("waitlisted", isWaitlisted)
-            .apply()
-    }
+    override fun isWaitlisted(): Boolean = prefs.getBoolean(WAITLISTED, EMPTY_BOOLEAN)
 
-    fun isLoggedIn(): Boolean {
-        return userID != null
-    }
-
-
-    val preferences: SharedPreferences by lazy {
-        app.getSharedPreferences(PREFS_FILE, MODE_PRIVATE)
-    }
-
-    private companion object {
-        const val PREFS_FILE = "last-searches"
+    companion object {
+        const val USER_ID = "user_id"
+        const val DEVICE_ID = "device_id"
+        const val USER_TOKEN = "user_token"
+        const val WAITLISTED = "waitlisted"
+        const val ANONYMOUS_TOKEN = "anonymous_token"
+        const val EMPTY_BOOLEAN = false
+        const val EMPTY_STRING = ""
     }
 }

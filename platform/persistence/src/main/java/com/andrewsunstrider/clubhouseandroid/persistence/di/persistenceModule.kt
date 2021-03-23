@@ -10,7 +10,7 @@ val persistenceModule = DI.Module("persistence") {
 
     bind<AppPreferencesWrapper>() with singleton {
         AppPreferencesWrapper(
-            app = instance()
+            prefs = instance()
         )
     }
 }
