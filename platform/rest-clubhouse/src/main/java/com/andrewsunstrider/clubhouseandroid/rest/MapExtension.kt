@@ -10,7 +10,7 @@ fun AuthorisationResponse.toDomain() = Authorisation(
     userProfile = User(
         userId = userProfile.userId,
         name = userProfile.name,
-        photoUrl = userProfile.photoUrl,
+        photoUrl = userProfile.photoUrl ?: "",
         username = userProfile.username
     )
 )

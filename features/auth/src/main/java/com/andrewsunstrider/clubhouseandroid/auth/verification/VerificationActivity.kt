@@ -47,6 +47,10 @@ class VerificationActivity : AppCompatActivity(), DIAware {
             is VerificationScreenState.Failed -> {
                 logger.e("Error -> ${state.error}")
             }
+            is VerificationScreenState.ShowChannelsScreen -> {
+                logger.i("Time to show Channel list screen!")
+                // TODO: 24.03.2021 show next screen
+            }
             else -> throw IllegalArgumentException("Unknown type for $state.")
         }
     }
