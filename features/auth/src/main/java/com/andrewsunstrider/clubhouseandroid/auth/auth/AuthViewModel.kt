@@ -21,14 +21,20 @@ class AuthViewModel(
             try {
                 //I don't use it there, left it here as example how to work with states of the following activities.
                 states.value = AuthScreenState.Success
-            } catch (_: Throwable) {
-                states.value = AuthScreenState.Failed
+            } catch (error: Throwable) {
+                states.value = AuthScreenState.Failed(error)
             }
         }
     }
 
-    fun getAuth(phoneNumber: String) =
+    fun getAuth(phoneNumber: String) {
         viewModelScope.launch {
-            loginServiceInteractor.sendNumber(phoneNumber)
+            try {
+                loginServiceInteractor.sendNumber(phoneNumber)
+                states.value = AuthScreenState.ShowVerification
+            } catch (error: Throwable) {
+                AuthScreenState.Failed(error)
+            }
         }
+    }
 }

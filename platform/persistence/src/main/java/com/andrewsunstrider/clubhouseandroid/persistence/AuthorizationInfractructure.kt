@@ -34,9 +34,7 @@ class AuthorisationInfrastructure(private val prefs: SharedPreferences) : Author
         return prefs.getBoolean(WAITLISTED, EMPTY_BOOLEAN)
     }
 
-    override fun isLoggedIn(): Boolean {
-        return USER_ID != EMPTY_STRING
-    }
+    override fun isLoggedIn(): Boolean = getUserID().isNotEmpty()
 
     override fun saveUserID() {
         prefs.edit().apply {

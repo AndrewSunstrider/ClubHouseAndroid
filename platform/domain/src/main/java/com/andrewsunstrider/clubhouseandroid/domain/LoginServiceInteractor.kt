@@ -9,5 +9,6 @@ class LoginServiceInteractor(
 
     suspend fun sendNumber(phoneNumber: String) = service.sendNumber(phoneNumber)
 
-    suspend fun sendCode(phoneNumber: String, verificationCode: String): AuthorisationResponse = service.sendCode(phoneNumber, verificationCode)
+    suspend fun sendCode(phoneNumber: String, verificationCode: String): AuthorisationResponse =
+        service.sendCode(phoneNumber, verificationCode)
 }

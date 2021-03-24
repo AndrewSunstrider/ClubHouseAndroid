@@ -43,12 +43,9 @@ class AuthActivity : AppCompatActivity(), DIAware {
     private fun render(state: AuthScreenState) {
         when (state) {
             AuthScreenState.Idle -> launch()
-            AuthScreenState.Success -> {
-                logger.i("Success -> Auth Activity running.")
-            }
-            AuthScreenState.Failed -> {
-                logger.e("Error -> $state.")
-            }
+            AuthScreenState.Success -> logger.i("Success -> Auth Activity running.")
+            is AuthScreenState.Failed -> logger.e("Error -> ${state.reason}")
+            AuthScreenState.ShowVerification -> proceedToVerification()
             else -> throw IllegalArgumentException("Unknown type for $state.")
         }
     }
@@ -62,11 +59,7 @@ class AuthActivity : AppCompatActivity(), DIAware {
 
         nextBtn.setOnClickListener {
             viewModel.getAuth(getCleanPhoneNumber())
-
             logger.i("Number is ${getCleanPhoneNumber()}")
-            logger.i("GetAuth results: ${viewModel.getAuth(getCleanPhoneNumber())}")
-
-            proceedToVerification()
         }
     }
 
