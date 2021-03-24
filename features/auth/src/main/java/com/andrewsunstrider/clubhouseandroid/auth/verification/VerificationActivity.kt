@@ -6,7 +6,6 @@ import android.widget.EditText
 import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.lifecycleScope
 import com.andrewsunstrider.clubhouseandroid.auth.R
-import com.andrewsunstrider.clubhouseandroid.auth.auth.AuthActivity
 import com.andrewsunstrider.clubhouseandroid.auth.databinding.ActivityVerificationBinding
 import com.andrewsunstrider.clubhouseandroid.logger.Logger
 import com.andrewsunstrider.clubhouseandroid.navigator.Navigator
@@ -45,8 +44,8 @@ class VerificationActivity : AppCompatActivity(), DIAware {
             VerificationScreenState.Success -> {
                 logger.i("Success -> Verification Activity running.")
             }
-            VerificationScreenState.Failed -> {
-                logger.e("Error -> $state.")
+            is VerificationScreenState.Failed -> {
+                logger.e("Error -> ${state.error}")
             }
             else -> throw IllegalArgumentException("Unknown type for $state.")
         }
@@ -66,10 +65,7 @@ class VerificationActivity : AppCompatActivity(), DIAware {
         val nextBtn = findViewById<Button>(R.id.verification_next_btn)
 
         nextBtn.setOnClickListener {
-            viewModel.getVerification(AuthActivity().getCleanPhoneNumber(), getVerificationCode())
-
-            logger.i("Number is ${AuthActivity().getCleanPhoneNumber()}")
-            logger.i("GetAuth results: ${viewModel.getVerification(AuthActivity().getCleanPhoneNumber(), getVerificationCode())}")
+            viewModel.getVerification(getVerificationCode())
         }
     }
 }

@@ -33,7 +33,7 @@ class AuthViewModel(
                 loginServiceInteractor.sendNumber(phoneNumber)
                 states.value = AuthScreenState.ShowVerification
             } catch (error: Throwable) {
-                AuthScreenState.Failed(error)
+                states.value = AuthScreenState.Failed(error)
             }
         }
     }

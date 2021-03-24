@@ -2,6 +2,7 @@ package com.andrewsunstrider.clubhouseandroid
 
 import android.app.Application
 import com.andrewsunstrider.clubhouseandroid.auth.di.authModule
+import com.andrewsunstrider.clubhouseandroid.auth.di.useCaseModule
 import com.andrewsunstrider.clubhouseandroid.auth.di.verificationModule
 import com.andrewsunstrider.clubhouseandroid.auth.di.welcomeModule
 import com.andrewsunstrider.clubhouseandroid.channels.di.channelsModule
@@ -31,6 +32,7 @@ class DependenciesSetup(private val app: Application) {
         persistenceModule,
         restInfrastructureModule,
         verificationModule,
+        useCaseModule,
         welcomeModule
     )
 }

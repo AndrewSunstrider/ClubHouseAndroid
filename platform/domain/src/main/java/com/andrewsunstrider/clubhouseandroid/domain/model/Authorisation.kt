@@ -1,8 +1,9 @@
 package com.andrewsunstrider.clubhouseandroid.domain.model
 
-data class AuthorisationResponse(
+
+data class Authorisation(
     val authToken: String,
-    val isWaitlisted: String,
+    val isWaitlisted: Boolean,
     val userProfile: User
 )
 

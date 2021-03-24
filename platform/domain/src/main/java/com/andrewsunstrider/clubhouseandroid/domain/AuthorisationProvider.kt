@@ -12,9 +12,13 @@ interface AuthorisationProvider {
 
     fun isLoggedIn(): Boolean
 
-    fun saveUserID()
+    fun saveUserID(value: String)
 
-    fun saveUserToken()
+    fun saveUserToken(value: String)
 
-    fun saveIsWaitListed()
+    fun saveIsWaitListed(value: Boolean)
+
+    fun setPhoneNumber(phoneNumber: String)
+
+    fun getPhoneNumber(): String
 }

@@ -36,23 +36,32 @@ class AuthorisationInfrastructure(private val prefs: SharedPreferences) : Author
 
     override fun isLoggedIn(): Boolean = getUserID().isNotEmpty()
 
-    override fun saveUserID() {
+    override fun saveUserID(value: String) {
         prefs.edit().apply {
-            putString(USER_ID, EMPTY_STRING)
+            putString(USER_ID, value)
             apply()
         }
     }
 
-    override fun saveUserToken() {
+    override fun saveUserToken(value: String) {
         prefs.edit().apply {
-            putString(USER_TOKEN, EMPTY_STRING)
+            putString(USER_TOKEN, value)
             apply()
         }
     }
 
-    override fun saveIsWaitListed() {
+    override fun saveIsWaitListed(value: Boolean) {
         prefs.edit().apply {
-            putBoolean(WAITLISTED, EMPTY_BOOLEAN)
+            putBoolean(WAITLISTED, value)
+            apply()
+        }
+    }
+
+    override fun getPhoneNumber() = prefs.getString(PHONE_NUMBER, EMPTY_STRING)!!
+
+    override fun setPhoneNumber(phoneNumber: String) {
+        prefs.edit().apply {
+            putString(PHONE_NUMBER, phoneNumber)
             apply()
         }
     }
@@ -62,6 +71,7 @@ class AuthorisationInfrastructure(private val prefs: SharedPreferences) : Author
         const val DEVICE_ID = "device_id"
         const val USER_TOKEN = "user_token"
         const val WAITLISTED = "waitlisted"
+        const val PHONE_NUMBER = "phone_number"
         const val ANONYMOUS_TOKEN = "anonymous_token"
         const val EMPTY_BOOLEAN = false
         const val EMPTY_STRING = ""

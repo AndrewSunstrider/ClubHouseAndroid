@@ -21,14 +21,18 @@ class VerificationViewModel(
             try {
                 //I don't use it there, left it here as example how to work with states of the following activities.
                 states.value = VerificationScreenState.Success
-            } catch (_: Throwable) {
-                states.value = VerificationScreenState.Failed
+            } catch (error: Throwable) {
+                states.value = VerificationScreenState.Failed(error)
             }
         }
     }
 
-    fun getVerification(phoneNumber: String, code: String) =
-        viewModelScope.launch {
-            loginServiceInteractor.sendCode(phoneNumber, code)
+    fun getVerification(code: String) = viewModelScope.launch {
+        try {
+            loginServiceInteractor.sendCode(code)
+            states.value = VerificationScreenState.ShowChannelsScreen
+        } catch (error: Throwable) {
+            states.value = VerificationScreenState.Failed(error)
         }
+    }
 }
