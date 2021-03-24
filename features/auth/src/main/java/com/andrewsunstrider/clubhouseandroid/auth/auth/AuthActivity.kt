@@ -44,7 +44,7 @@ class AuthActivity : AppCompatActivity(), DIAware {
         when (state) {
             AuthScreenState.Idle -> launch()
             AuthScreenState.Success -> {
-                logger.i("Success -> Welcome Activity running.")
+                logger.i("Success -> Auth Activity running.")
             }
             AuthScreenState.Failed -> {
                 logger.e("Error -> $state.")
@@ -70,7 +70,7 @@ class AuthActivity : AppCompatActivity(), DIAware {
         }
     }
 
-    private fun getCleanPhoneNumber(): String {
+    fun getCleanPhoneNumber(): String {
         val phoneInput = findViewById<EditText>(R.id.phone_number_field)
 
         val number = phoneInput.text.toString().replace("[^\\d]".toRegex(), "")

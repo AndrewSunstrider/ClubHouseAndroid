@@ -2,13 +2,14 @@ package com.andrewsunstrider.clubhouseandroid.auth.verification
 
 import android.os.Bundle
 import android.widget.Button
+import android.widget.EditText
 import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.lifecycleScope
 import com.andrewsunstrider.clubhouseandroid.auth.R
+import com.andrewsunstrider.clubhouseandroid.auth.auth.AuthActivity
 import com.andrewsunstrider.clubhouseandroid.auth.databinding.ActivityVerificationBinding
 import com.andrewsunstrider.clubhouseandroid.logger.Logger
 import com.andrewsunstrider.clubhouseandroid.navigator.Navigator
-import com.andrewsunstrider.clubhouseandroid.navigator.Screen
 import com.andrewsunstrider.clubhouseandroid.utilities.selfBind
 import com.andrewsunstrider.clubhouseandroid.utilities.viewBinding
 import kotlinx.coroutines.delay
@@ -42,7 +43,7 @@ class VerificationActivity : AppCompatActivity(), DIAware {
         when (state) {
             VerificationScreenState.Idle -> launch()
             VerificationScreenState.Success -> {
-                logger.i("Success -> Welcome Activity running.")
+                logger.i("Success -> Verification Activity running.")
             }
             VerificationScreenState.Failed -> {
                 logger.e("Error -> $state.")
@@ -55,7 +56,20 @@ class VerificationActivity : AppCompatActivity(), DIAware {
         viewModel.handleApplicationLaunch()
     }
 
-    private fun initListeners() {
+    private fun getVerificationCode(): String {
+        val codeInput = findViewById<EditText>(R.id.verification_field)
 
+        return codeInput.text.toString()
+    }
+
+    private fun initListeners() {
+        val nextBtn = findViewById<Button>(R.id.verification_next_btn)
+
+        nextBtn.setOnClickListener {
+            viewModel.getVerification(AuthActivity().getCleanPhoneNumber(), getVerificationCode())
+
+            logger.i("Number is ${AuthActivity().getCleanPhoneNumber()}")
+            logger.i("GetAuth results: ${viewModel.getVerification(AuthActivity().getCleanPhoneNumber(), getVerificationCode())}")
+        }
     }
 }

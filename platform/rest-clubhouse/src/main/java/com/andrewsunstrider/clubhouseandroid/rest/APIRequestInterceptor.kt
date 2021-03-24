@@ -19,6 +19,11 @@ class APIRequestInterceptor(
             addHeader("CH-AppVersion", API_BUILD_VERSION)
             addHeader("User-Agent", API_UA)
             addHeader("CH-DeviceId", preferences.getDeviceID())
+
+            if (preferences.isLoggedIn()) {
+                addHeader("Authorization", "Token " + preferences.getUserToken())
+                addHeader("CH-UserID", preferences.getUserID())
+            }
         }
 
         return chain.proceed(builder.build())

@@ -10,6 +10,8 @@ interface AuthorisationProvider {
 
     fun isWaitlisted(): Boolean
 
+    fun isLoggedIn(): Boolean
+
     fun saveUserID()
 
     fun saveUserToken()
