@@ -8,6 +8,7 @@ pluginManagement {
 include(
     ":app",
     ":features:auth",
+    ":features:channels",
     ":platform:coroutines-testutils",
     ":platform:domain",
     ":platform:logger",

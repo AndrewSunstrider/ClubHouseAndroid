@@ -4,6 +4,7 @@ import android.app.Application
 import com.andrewsunstrider.clubhouseandroid.auth.di.authModule
 import com.andrewsunstrider.clubhouseandroid.auth.di.verificationModule
 import com.andrewsunstrider.clubhouseandroid.auth.di.welcomeModule
+import com.andrewsunstrider.clubhouseandroid.channels.di.channelsModule
 import com.andrewsunstrider.clubhouseandroid.di.applicationModule
 import com.andrewsunstrider.clubhouseandroid.navigator.di.navigatorModule
 import com.andrewsunstrider.clubhouseandroid.persistence.di.persistenceModule
@@ -25,6 +26,7 @@ class DependenciesSetup(private val app: Application) {
     private val modules = listOf(
         applicationModule,
         authModule,
+        channelsModule,
         navigatorModule,
         persistenceModule,
         restInfrastructureModule,

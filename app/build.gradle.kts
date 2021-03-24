@@ -76,6 +76,7 @@ android {
 
 dependencies {
     implementation(project(":features:auth"))
+    implementation(project(":features:channels"))
 
     implementation(project(":platform:domain"))
     implementation(project(":platform:logger"))
