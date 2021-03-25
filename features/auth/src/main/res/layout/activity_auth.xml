@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/yellow_A200_alpha_10"
+    android:gravity="center"
+    android:orientation="vertical">
+
+    <TextView
+        android:id="@+id/phone_title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/enter_your_phone"
+        android:textAppearance="@style/AuthTextViewsStyle"
+        android:textSize="@dimen/text_size_24" />
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/phone_number_layout"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/dp_48"
+        android:layout_marginStart="@dimen/dp_40"
+        android:layout_marginTop="@dimen/dp_48"
+        android:layout_marginEnd="@dimen/dp_40"
+        android:background="@android:color/transparent"
+        app:boxStrokeWidth="@dimen/dp_0"
+        app:boxStrokeWidthFocused="@dimen/dp_0"
+        app:hintEnabled="false">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/phone_number_field"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@drawable/bg_phone_number_field"
+            android:fontFamily="@font/inter_500"
+            android:hint="@string/phone_number"
+            android:inputType="phone"
+            android:text="79165546419"
+            android:letterSpacing="0.01"
+            android:maxLines="1"
+            android:padding="@dimen/dp_8"
+            android:textCursorDrawable="@color/light_blue_800"
+            android:textSize="@dimen/text_size_16" />
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <TextView
+        android:id="@+id/number_entering_attention"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/dp_40"
+        android:layout_marginTop="@dimen/dp_68"
+        android:layout_marginEnd="@dimen/dp_40"
+        android:gravity="center"
+        android:lineSpacingExtra="1dp"
+        android:text="@string/number_entering_attention"
+        android:textAppearance="@style/AuthTextViewsStyle"
+        android:textSize="@dimen/text_size_12" />
+
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/auth_next_btn"
+        style="@style/AuthButtonsStyle"
+        android:layout_width="@dimen/dp_148"
+        android:layout_height="@dimen/dp_48"
+        android:layout_marginTop="@dimen/dp_40"
+        android:paddingStart="@dimen/dp_16"
+        android:paddingEnd="@dimen/dp_16"
+        android:text="@string/next" />
+</LinearLayout>

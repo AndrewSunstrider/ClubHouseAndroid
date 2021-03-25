@@ -1,6 +1,5 @@
 import configs.AndroidConfig
 import configs.KotlinConfig
-import configs.ProguardConfig
 import org.jetbrains.kotlin.gradle.tasks.KotlinCompile
 
 plugins {
@@ -39,31 +38,23 @@ android {
         testBuildType = "release"
     }
 
-    signingConfigs {
-        create("release") {
-            storeFile = rootProject.file("signing/dotanuki-demos.jks")
-            storePassword = "dotanuki"
-            keyAlias = "dotanuki-alias"
-            keyPassword = "dotanuki"
-        }
-    }
-
     buildTypes {
 
         getByName("debug") {
             applicationIdSuffix = ".debug"
             versionNameSuffix = "-DEBUG"
             isTestCoverageEnabled = true
+            buildConfigField("String", "CLUBHOUSE_API_URL", "\"${project.evaluateAPIUrl()}\"")
+            resValue("bool", "clear_networking_traffic_enabled", "${project.evaluateTestMode()}")
         }
 
         getByName("release") {
             isMinifyEnabled = true
             isShrinkResources = true
 
-            val proguardConfig = ProguardConfig("$rootDir/proguard")
-            proguardFiles(*(proguardConfig.customRules))
-            proguardFiles(getDefaultProguardFile(proguardConfig.androidRules))
 
+            buildConfigField("String", "CLUBHOUSE_API_URL", "\"${project.evaluateAPIUrl()}\"")
+            resValue("bool", "clear_networking_traffic_enabled", "${project.evaluateTestMode()}")
             signingConfig = signingConfigs.findByName("release")
         }
     }
@@ -85,6 +76,7 @@ android {
 
 dependencies {
     implementation(project(":features:auth"))
+    implementation(project(":features:channels"))
 
     implementation(project(":platform:domain"))
     implementation(project(":platform:logger"))
@@ -116,3 +108,9 @@ dependencies {
     androidTestImplementation(Libraries.assertjJava7)
     androidTestImplementation(Libraries.mockWebServer)
 }
+
+fun Project.evaluateTestMode(): Boolean =
+    properties["testMode"]?.let { true } ?: false
+
+fun Project.evaluateAPIUrl(): String =
+    properties["testMode"]?.let { "http://localhost:4242" } ?: "https://www.clubhouseapi.com/api/"

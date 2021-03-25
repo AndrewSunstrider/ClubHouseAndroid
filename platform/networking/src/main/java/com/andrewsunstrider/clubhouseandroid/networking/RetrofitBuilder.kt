@@ -11,7 +11,7 @@ import retrofit2.Retrofit
 @ExperimentalSerializationApi
 object RetrofitBuilder {
 
-    operator fun invoke(apiURL: HttpUrl, httpClient: OkHttpClient) =
+    operator fun invoke(apiURL: HttpUrl, httpClient: OkHttpClient): Retrofit =
         with(Retrofit.Builder()) {
             baseUrl(apiURL)
             client(httpClient)

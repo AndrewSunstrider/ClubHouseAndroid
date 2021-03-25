@@ -3,7 +3,6 @@ package plugins
 import Versioning
 import com.android.build.gradle.BaseExtension
 import configs.AndroidConfig
-import configs.ProguardConfig
 import org.gradle.api.JavaVersion
 import org.gradle.api.Project
 
@@ -36,10 +35,6 @@ fun Project.configureAsAndroidLibrary() {
 
             getByName("release") {
                 isMinifyEnabled = true
-
-                val proguardConfig = ProguardConfig("$rootDir/proguard")
-                proguardFiles(*(proguardConfig.customRules))
-                proguardFiles(getDefaultProguardFile(proguardConfig.androidRules))
             }
         }
 

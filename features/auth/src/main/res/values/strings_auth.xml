@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- region Welcome-->
+    <string name="welcome">🥳 Welcome!</string>
+    <string name="welcome_description">You\'re watching on unofficial ClubHouse application for devices witch using 🤖 Android OS.</string>
+    <string name="welcome_words_from_official_developers">
+        Anyone can join with an invite from an exiting user -
+        or reserve your username and we\'ll text you if you have a friend on the app who can let you in.
+        We are so grateful you\'re here and can\'t wait to have you join! 🙏
+    </string>
+    <string name="got_it">Got it</string>
+    <!-- endregion Welcome-->
+
+    <!-- region Auth-->
+    <string name="enter_your_phone">Enter your phone #</string>
+    <string name="number_entering_attention">
+        By entering your number, you\'re agreeing to <b>official ClubHouse Terms of Service</b> and <b>Privacy Policy</b>.You can read them
+        in official app or website before agreeing. Thanks!
+    </string>
+    <string name="phone_number">Phone number</string>
+    <!-- endregion Auth-->
+
+    <!-- region Verification-->
+    <string name="enter_verification_code">Enter the code ClubHouse just texted you</string>
+    <string name="verification_code_attention">
+         Didn\'t receive it? Tap on <b>Resend code</b> button!
+    </string>
+    <string name="enter_code">Enter code</string>
+    <string name="resend_code">Resend code</string>
+    <!-- endregion Verification-->
+
+    <string name="next">Next</string>
+</resources>

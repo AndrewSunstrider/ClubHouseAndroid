@@ -4,7 +4,6 @@ plugins {
 }
 
 dependencies {
-
     implementation(project(":platform:domain"))
     implementation(Libraries.coroutinesCore)
     implementation(Libraries.kodein)
