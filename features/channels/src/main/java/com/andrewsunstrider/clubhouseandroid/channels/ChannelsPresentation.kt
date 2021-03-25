@@ -20,7 +20,7 @@ data class ChannelDisplayRow(
         operator fun invoke(channel: Channel) = with(channel) {
             ChannelDisplayRow(
                 channelId = channelId,
-                title = topic,
+                title = title,
                 numSpeakers = numSpeakers,
                 numAll = numAll,
             )

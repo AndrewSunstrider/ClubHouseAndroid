@@ -39,7 +39,7 @@ fun List<ChannelResponse>.toDomain(): List<Channel> {
                 pubnubHeartbeatInterval = response.pubnubHeartbeatInterval,
                 pubnubToken = response.pubnubToken,
                 token = response.token,
-                topic = response.topic,
+                title = response.topic,
                 url = response.url,
                 users = response.users.toUsers()
             )

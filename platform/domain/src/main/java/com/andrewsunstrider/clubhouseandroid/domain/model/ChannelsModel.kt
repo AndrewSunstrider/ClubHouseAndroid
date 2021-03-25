@@ -4,7 +4,7 @@ data class Channel(
     val creatorUserProfileId: Int,
     val channelId: Int,
     val channel: String,
-    val topic: String,
+    val title: String,
     val isPrivate: Boolean,
     val isSocialMode: Boolean,
     val url: String,
