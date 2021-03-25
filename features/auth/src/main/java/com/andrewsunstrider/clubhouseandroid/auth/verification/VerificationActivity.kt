@@ -9,6 +9,7 @@ import com.andrewsunstrider.clubhouseandroid.auth.R
 import com.andrewsunstrider.clubhouseandroid.auth.databinding.ActivityVerificationBinding
 import com.andrewsunstrider.clubhouseandroid.logger.Logger
 import com.andrewsunstrider.clubhouseandroid.navigator.Navigator
+import com.andrewsunstrider.clubhouseandroid.navigator.Screen
 import com.andrewsunstrider.clubhouseandroid.utilities.selfBind
 import com.andrewsunstrider.clubhouseandroid.utilities.viewBinding
 import kotlinx.coroutines.delay
@@ -41,16 +42,9 @@ class VerificationActivity : AppCompatActivity(), DIAware {
     private fun render(state: VerificationScreenState) {
         when (state) {
             VerificationScreenState.Idle -> launch()
-            VerificationScreenState.Success -> {
-                logger.i("Success -> Verification Activity running.")
-            }
-            is VerificationScreenState.Failed -> {
-                logger.e("Error -> ${state.error}")
-            }
-            is VerificationScreenState.ShowChannelsScreen -> {
-                logger.i("Time to show Channel list screen!")
-                // TODO: 24.03.2021 show next screen
-            }
+            VerificationScreenState.Success -> logger.i("Success -> Verification Activity running.")
+            is VerificationScreenState.Failed -> logger.e("Error -> ${state.error}")
+            is VerificationScreenState.ShowChannelsScreen -> proceedToChannels()
             else -> throw IllegalArgumentException("Unknown type for $state.")
         }
     }
@@ -71,5 +65,11 @@ class VerificationActivity : AppCompatActivity(), DIAware {
         nextBtn.setOnClickListener {
             viewModel.getVerification(getVerificationCode())
         }
+    }
+
+    private fun proceedToChannels() {
+        navigator.navigateTo(Screen.Channels)
+        overridePendingTransition(android.R.anim.fade_in, android.R.anim.fade_out)
+        finish()
     }
 }

@@ -63,7 +63,7 @@ class AuthActivity : AppCompatActivity(), DIAware {
         }
     }
 
-    fun getCleanPhoneNumber(): String {
+    private fun getCleanPhoneNumber(): String {
         val phoneInput = findViewById<EditText>(R.id.phone_number_field)
 
         val number = phoneInput.text.toString().replace("[^\\d]".toRegex(), "")
