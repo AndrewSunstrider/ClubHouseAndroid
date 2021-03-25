@@ -4,6 +4,7 @@ import androidx.fragment.app.FragmentActivity
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
 import com.andrewsunstrider.clubhouseandroid.channels.ChannelsViewModel
+import com.andrewsunstrider.clubhouseandroid.domain.GetChannels
 import com.andrewsunstrider.clubhouseandroid.utilities.KodeinTags
 import org.kodein.di.DI
 import org.kodein.di.bind
@@ -21,5 +22,11 @@ val channelsModule = DI.Module("channels") {
 
         val host: FragmentActivity = instance(KodeinTags.hostActivity)
         ViewModelProvider(host, factory).get(ChannelsViewModel::class.java)
+    }
+
+    bind() from provider {
+        GetChannels(
+            service = instance()
+        )
     }
 }

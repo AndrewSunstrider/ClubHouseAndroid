@@ -1,4 +1,4 @@
-package com.andrewsunstrider.clubhouseandroid.rest
+package com.andrewsunstrider.clubhouseandroid.rest.responses
 
 import kotlinx.serialization.SerialName
 import kotlinx.serialization.Serializable

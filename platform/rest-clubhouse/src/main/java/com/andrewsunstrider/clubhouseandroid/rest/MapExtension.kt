@@ -2,6 +2,7 @@ package com.andrewsunstrider.clubhouseandroid.rest
 
 import com.andrewsunstrider.clubhouseandroid.domain.model.Authorisation
 import com.andrewsunstrider.clubhouseandroid.domain.model.User
+import com.andrewsunstrider.clubhouseandroid.rest.responses.AuthorisationResponse
 
 
 fun AuthorisationResponse.toDomain() = Authorisation(
