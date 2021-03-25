@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="user_avatar_description">Click to move on user profile screen.</string>
+    <string name="ic_search_description">Click to searching.</string>
+    <string name="speaker_avatar_description">Speaker avatar image.</string>
+</resources>

@@ -20,6 +20,7 @@ dependencies {
     implementation(Libraries.coreAndroidx)
     implementation(Libraries.appCompat)
     implementation(Libraries.materialDesign)
+    implementation(Libraries.constraintLayout)
 
     testImplementation(project(":platform:coroutines-testutils"))
     testImplementation(Libraries.jUnit)
