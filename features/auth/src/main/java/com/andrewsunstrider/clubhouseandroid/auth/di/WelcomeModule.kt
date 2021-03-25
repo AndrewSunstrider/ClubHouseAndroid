@@ -15,7 +15,7 @@ val welcomeModule = DI.Module("welcome") {
     bind() from provider {
         @Suppress("UNCHECKED_CAST") val factory = object : ViewModelProvider.Factory {
             override fun <VM : ViewModel> create(klass: Class<VM>) =
-                WelcomeViewModel() as VM
+                WelcomeViewModel(isLogged = instance()) as VM
         }
 
         val host: FragmentActivity = instance(KodeinTags.hostActivity)

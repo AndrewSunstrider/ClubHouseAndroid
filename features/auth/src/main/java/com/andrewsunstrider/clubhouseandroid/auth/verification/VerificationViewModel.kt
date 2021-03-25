@@ -2,7 +2,7 @@ package com.andrewsunstrider.clubhouseandroid.auth.verification
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import com.andrewsunstrider.clubhouseandroid.domain.LoginServiceInteractor
+import com.andrewsunstrider.clubhouseandroid.domain.usecase.LoginServiceInteractor
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.asStateFlow
 import kotlinx.coroutines.launch

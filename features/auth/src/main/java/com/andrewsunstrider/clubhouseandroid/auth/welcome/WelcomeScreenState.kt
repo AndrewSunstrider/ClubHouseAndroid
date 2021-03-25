@@ -4,5 +4,7 @@ sealed class WelcomeScreenState {
     object Idle : WelcomeScreenState()
     object Launching : WelcomeScreenState()
     object Success : WelcomeScreenState()
-    object Failed : WelcomeScreenState()
+    data class Failed(val error: Throwable) : WelcomeScreenState()
+    object ShowRegistrationScreen : WelcomeScreenState()
+    object ShowChannelsScreen : WelcomeScreenState()
 }
