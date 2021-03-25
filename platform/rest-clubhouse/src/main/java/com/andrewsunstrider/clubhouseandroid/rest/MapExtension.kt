@@ -60,7 +60,11 @@ fun List<ChannelUserResponse>.toUsers(): List<ChannelUser> {
                 isModerator = response.isModerator,
                 isMuted = response.isMuted,
                 isNew = response.isNew,
-                timeJoinedAsSpeaker = response.timeJoinedAsSpeaker
+                timeJoinedAsSpeaker = response.timeJoinedAsSpeaker,
+                name = response.name,
+                photoUrl = response.photoUrl,
+                userID = response.userID,
+                username = response.username
             )
         )
     }

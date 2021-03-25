@@ -27,8 +27,6 @@ class ChannelsActivity : AppCompatActivity(), DIAware {
         super.onCreate(savedInstanceState)
         setContentView(viewBindings.root)
 
-        initListeners()
-
         lifecycleScope.launch {
             delay(1000)
             viewModel.bind().collect { render(it) }
@@ -38,7 +36,10 @@ class ChannelsActivity : AppCompatActivity(), DIAware {
     private fun render(state: ChannelsScreenState) {
         when (state) {
             ChannelsScreenState.Idle -> launch()
-            ChannelsScreenState.Success -> logger.i("Success -> Channels Activity running.")
+            is ChannelsScreenState.Success -> {
+                showChannels(state.value)
+                logger.i("Success -> Channels Activity running.")
+            }
             is ChannelsScreenState.Failed -> logger.e("Error -> ${state.reason}")
             else -> throw IllegalArgumentException("Unknown type for $state.")
         }
@@ -48,7 +49,9 @@ class ChannelsActivity : AppCompatActivity(), DIAware {
         viewModel.handleApplicationLaunch()
     }
 
-    private fun initListeners() {
-
+    private fun showChannels(presentation: List<ChannelDisplayRow>) {
+        viewBindings.run {
+            channelsRv.adapter = ChannelsAdapter(presentation) {}
+        }
     }
 }

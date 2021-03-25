@@ -28,5 +28,9 @@ data class ChannelUser(
     val isNew: Boolean,
     val timeJoinedAsSpeaker: String,
     val firstName: String,
-    val isMuted: Boolean
+    val isMuted: Boolean,
+    val userID: Int,
+    val name: String,
+    val photoUrl: String?,
+    val username: String
 )

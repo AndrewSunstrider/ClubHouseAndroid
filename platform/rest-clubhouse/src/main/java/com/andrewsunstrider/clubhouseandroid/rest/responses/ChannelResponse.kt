@@ -58,5 +58,13 @@ data class ChannelUserResponse(
     @SerialName("first_name")
     val firstName: String,
     @SerialName("is_muted")
-    val isMuted: Boolean
+    val isMuted: Boolean,
+    @SerialName("user_id")
+    val userID: Int,
+    @SerialName("name")
+    val name: String,
+    @SerialName("photo_url")
+    val photoUrl: String?,
+    @SerialName("username")
+    val username: String
 )
