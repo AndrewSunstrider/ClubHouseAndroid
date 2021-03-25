@@ -1,9 +1,11 @@
 package com.andrewsunstrider.clubhouseandroid.rest.di
 
 import com.andrewsunstrider.clubhouseandroid.domain.services.AuthService
+import com.andrewsunstrider.clubhouseandroid.domain.services.ChannelsService
 import com.andrewsunstrider.clubhouseandroid.networking.RetrofitBuilder
 import com.andrewsunstrider.clubhouseandroid.rest.APIRequestInterceptor
 import com.andrewsunstrider.clubhouseandroid.rest.AuthInfrastructure
+import com.andrewsunstrider.clubhouseandroid.rest.ChannelsRepository
 import com.andrewsunstrider.clubhouseandroid.rest.ClubHouseAPI
 import kotlinx.serialization.ExperimentalSerializationApi
 import okhttp3.Interceptor
@@ -39,6 +41,12 @@ val restInfrastructureModule = DI.Module("rest-infrastructure") {
 
     bind<AuthService>() with provider {
         AuthInfrastructure(
+            clubHouseApi = instance()
+        )
+    }
+
+    bind<ChannelsService>() with provider {
+        ChannelsRepository(
             clubHouseApi = instance()
         )
     }

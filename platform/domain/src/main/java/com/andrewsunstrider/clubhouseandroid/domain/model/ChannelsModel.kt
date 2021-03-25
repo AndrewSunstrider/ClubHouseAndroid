@@ -13,14 +13,14 @@ data class Channel(
     val isExploreChannel: Boolean,
     val numSpeakers: Int,
     val numAll: Int,
-    val users: List<ChannelUserResponse>,
+    val users: List<ChannelUser>,
     val token: String,
     val isHandraiseEnabled: Boolean,
     val pubnubToken: Int,
     val pubnubHeartbeatInterval: Int
 )
 
-data class ChannelUserResponse(
+data class ChannelUser(
     val isSpeaker: Boolean,
     val isModerator: Boolean,
     val isFollowedBySpeaker: Boolean,

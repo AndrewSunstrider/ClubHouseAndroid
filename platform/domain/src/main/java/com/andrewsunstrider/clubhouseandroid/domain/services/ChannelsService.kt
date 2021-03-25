@@ -4,5 +4,5 @@ import com.andrewsunstrider.clubhouseandroid.domain.model.Channel
 
 interface ChannelsService {
 
-    suspend fun availableChannels(): Channel
+    suspend fun availableChannels(): List<Channel>
 }
