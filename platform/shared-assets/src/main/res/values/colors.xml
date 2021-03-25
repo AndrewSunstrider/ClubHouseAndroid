@@ -5,4 +5,5 @@
     <color name="yellow_A200_alpha_10">#1AFFFF00</color>
     <color name="light_blue_800">#0277BD</color>
     <color name="light_blue_800_alpha_50">#800277BD</color>
+    <color name="gray_600_alpha_10">#1A757575</color>
 </resources>

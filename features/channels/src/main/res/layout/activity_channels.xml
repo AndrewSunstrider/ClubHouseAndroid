@@ -12,7 +12,7 @@
         android:id="@+id/channels_action_bar"
         android:layout_width="match_parent"
         android:layout_height="@dimen/dp_56"
-        android:background="@android:color/transparent">
+        android:background="@color/gray_600_alpha_10">
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:id="@+id/search_cl"

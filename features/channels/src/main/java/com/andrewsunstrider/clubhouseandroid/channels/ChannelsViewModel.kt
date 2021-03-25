@@ -2,7 +2,7 @@ package com.andrewsunstrider.clubhouseandroid.channels
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import com.andrewsunstrider.clubhouseandroid.domain.GetChannels
+import com.andrewsunstrider.clubhouseandroid.domain.usecase.GetChannels
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.asStateFlow
 import kotlinx.coroutines.launch
@@ -26,7 +26,6 @@ class ChannelsViewModel(
         }
     }
 
-    private suspend fun getChannels(): List<ChannelDisplayRow> = getChannels.getChannels().map {
-        ChannelDisplayRow(it)
-    }
+    private suspend fun getChannels(): List<ChannelDisplayRow> = getChannels.getChannels()
+        .map { ChannelDisplayRow(it) }
 }

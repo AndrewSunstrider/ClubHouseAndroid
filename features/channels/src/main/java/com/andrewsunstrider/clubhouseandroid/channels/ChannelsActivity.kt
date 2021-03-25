@@ -36,6 +36,8 @@ class ChannelsActivity : AppCompatActivity(), DIAware {
     private fun render(state: ChannelsScreenState) {
         when (state) {
             ChannelsScreenState.Idle -> launch()
+            // TODO: 25.03.2021 Add progress logic
+            ChannelsScreenState.Launching -> { }
             is ChannelsScreenState.Success -> {
                 showChannels(state.value)
                 logger.i("Success -> Channels Activity running.")
