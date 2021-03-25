@@ -41,12 +41,10 @@ class WelcomeActivity : AppCompatActivity(), DIAware {
     private fun render(state: WelcomeScreenState) {
         when (state) {
             WelcomeScreenState.Idle -> launch()
-            WelcomeScreenState.Success -> {
-                logger.i("Success -> Welcome Activity running.")
-            }
-            WelcomeScreenState.Failed -> {
-                logger.e("Error -> $state.")
-            }
+            WelcomeScreenState.Success -> logger.d("Success -> Welcome Activity running.")
+            WelcomeScreenState.ShowRegistrationScreen -> proceedToAuth()
+            WelcomeScreenState.ShowChannelsScreen -> proceedToChannels()
+            is WelcomeScreenState.Failed -> logger.e("Error -> ${state.error}")
             else -> throw IllegalArgumentException("Unknown type for $state.")
         }
     }
@@ -57,7 +55,17 @@ class WelcomeActivity : AppCompatActivity(), DIAware {
 
     private fun initListeners() {
         val gotItBtn = findViewById<Button>(R.id.welcome_button)
-        gotItBtn.setOnClickListener { proceedToAuth() }
+        gotItBtn.setOnClickListener { checkIsLogged() }
+    }
+
+    private fun checkIsLogged() {
+        viewModel.isUserLogged()
+    }
+
+    private fun proceedToChannels() {
+        navigator.navigateTo(Screen.Channels)
+        overridePendingTransition(android.R.anim.fade_in, android.R.anim.fade_out)
+        finish()
     }
 
     private fun proceedToAuth() {
