@@ -3,6 +3,7 @@ package com.andrewsunstrider.clubhouseandroid.channels
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.lifecycleScope
+import androidx.recyclerview.widget.LinearLayoutManager
 import com.andrewsunstrider.clubhouseandroid.channels.databinding.ActivityChannelsBinding
 import com.andrewsunstrider.clubhouseandroid.logger.Logger
 import com.andrewsunstrider.clubhouseandroid.navigator.Navigator
@@ -53,7 +54,8 @@ class ChannelsActivity : AppCompatActivity(), DIAware {
 
     private fun showChannels(presentation: List<ChannelDisplayRow>) {
         viewBindings.run {
-            channelsRv.adapter = ChannelsAdapter(presentation) {}
+            channelsRv.layoutManager = LinearLayoutManager(this@ChannelsActivity)
+            channelsRv.adapter = ChannelsAdapter(presentation) { /* click listener callback */ }
         }
     }
 }
