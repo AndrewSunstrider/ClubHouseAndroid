@@ -61,7 +61,7 @@ fun List<ChannelUserResponse>.toUsers(): List<ChannelUser> {
                 isNew = response.isNew ?: false,
                 timeJoinedAsSpeaker = response.timeJoinedAsSpeaker ?: "",
                 name = response.name,
-                photoUrl = response.photoUrl,
+                photoUrl = response.photoUrl ?: "",
                 userID = response.userID,
                 username = response.username ?: "",
                 isFollowedBySpeaker = response.isFollwedBySpeaker ?: false

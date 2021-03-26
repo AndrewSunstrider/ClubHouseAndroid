@@ -31,6 +31,6 @@ data class ChannelUser(
     val isMuted: Boolean,
     val userID: Int,
     val name: String,
-    val photoUrl: String?,
+    val photoUrl: String,
     val username: String
 )

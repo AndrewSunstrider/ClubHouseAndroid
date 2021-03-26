@@ -1,6 +1,8 @@
 package com.andrewsunstrider.clubhouseandroid.channels
 
 import com.andrewsunstrider.clubhouseandroid.domain.model.Channel
+import com.andrewsunstrider.clubhouseandroid.domain.model.ChannelUser
+
 
 // TODO: 25.03.2021 Add model with query
 data class ChannelsPresentation(
@@ -10,10 +12,12 @@ data class ChannelsPresentation(
 
 data class ChannelDisplayRow(
     val channelId: Int,
-    val title: String,
+    val title: String?,
     val numSpeakers: Int,
-    val numAll: Int
+    val numAll: Int,
+    val users: List<ChannelUser>
 ) {
+
 
     companion object {
 
@@ -23,6 +27,7 @@ data class ChannelDisplayRow(
                 title = title,
                 numSpeakers = numSpeakers,
                 numAll = numAll,
+                users = users
             )
         }
     }

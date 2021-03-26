@@ -3,8 +3,11 @@ package com.andrewsunstrider.clubhouseandroid.channels
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.ImageView
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
+import com.andrewsunstrider.clubhouseandroid.utilities.load
+import java.util.stream.Collectors
 
 class ChannelsAdapter(
     private val presentation: List<ChannelDisplayRow>,
@@ -38,6 +41,27 @@ class ChannelsHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
             itemView.findViewById<TextView>(R.id.member_count).apply {
                 text = row.numAll.toString()
             }
+
+            itemView.findViewById<TextView>(R.id.speaker_name_one).apply {
+                text = row.users.stream()
+                    .map { user -> if (user.isSpeaker) (user.name + " 💬") else user.name }
+                    .collect(Collectors.joining("\n"))
+            }
+
+            val avatarFirst = itemView.findViewById<ImageView>(R.id.speaker_avatar_first)
+            val avatarSecond = itemView.findViewById<ImageView>(R.id.speaker_avatar_second)
+
+            row.users
+                .filterIndexed { index, _ -> index <= 1 }
+                .mapIndexed { index, channelUser ->
+                    when (index) {
+                        0 -> avatarFirst.load(channelUser.photoUrl)
+                        else -> avatarSecond.apply {
+                            visibility = View.VISIBLE
+                            load(channelUser.photoUrl)
+                        }
+                    }
+                }
 
             setOnClickListener { action.invoke(row) }
         }
