@@ -4,6 +4,11 @@ import kotlinx.serialization.SerialName
 import kotlinx.serialization.Serializable
 
 @Serializable
+data class ChannelsResponse(
+    val channels: List<ChannelResponse>
+)
+
+@Serializable
 data class ChannelResponse(
     @SerialName("creator_user_profile_id")
     val creatorUserProfileId: Int,
@@ -12,7 +17,7 @@ data class ChannelResponse(
     @SerialName("channel")
     val channel: String,
     @SerialName("topic")
-    val topic: String,
+    val topic: String?,
     @SerialName("is_private")
     val isPrivate: Boolean,
     @SerialName("is_social_mode")
@@ -32,13 +37,13 @@ data class ChannelResponse(
     @SerialName("users")
     val users: List<ChannelUserResponse>,
     @SerialName("token")
-    val token: String,
+    var token: String? = null,
     @SerialName("is_handraise_enable")
-    val isHandraiseEnabled: Boolean,
+    var isHandraiseEnabled: Boolean? = null,
     @SerialName("pubnub_token")
-    val pubnubToken: Int,
+    var pubnubToken: Int? = null,
     @SerialName("pubnub_heartbeat_interval")
-    val pubnubHeartbeatInterval: Int
+    var pubnubHeartbeatInterval: Int? = null
 )
 
 @Serializable
@@ -47,18 +52,16 @@ data class ChannelUserResponse(
     val isSpeaker: Boolean,
     @SerialName("is_moderator")
     val isModerator: Boolean,
-    @SerialName("is_followed_by_speaker")
-    val isFollowedBySpeaker: Boolean,
     @SerialName("is_invited_as_speaker")
-    val isInvitedAsSpeaker: Boolean,
+    var isInvitedAsSpeaker: Boolean? = null,
     @SerialName("is_new")
-    val isNew: Boolean,
+    var isNew: Boolean? = null,
     @SerialName("time_joined_as_speaker")
-    val timeJoinedAsSpeaker: String,
+    val timeJoinedAsSpeaker: String?,
     @SerialName("first_name")
-    val firstName: String,
+    var firstName: String? = null,
     @SerialName("is_muted")
-    val isMuted: Boolean,
+    var isMuted: Boolean? = null,
     @SerialName("user_id")
     val userID: Int,
     @SerialName("name")
@@ -66,5 +69,7 @@ data class ChannelUserResponse(
     @SerialName("photo_url")
     val photoUrl: String?,
     @SerialName("username")
-    val username: String
+    var username: String? = null,
+    @SerialName("is_follwed_by_speaker")
+    var isFollwedBySpeaker: Boolean? = null
 )

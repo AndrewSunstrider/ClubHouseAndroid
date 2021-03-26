@@ -22,9 +22,9 @@ data class UserResponse(
     @SerialName("user_id")
     val userId: Int,
     @SerialName("name")
-    val name: String,
+    val name: String?,
     @SerialName("photo_url")
     val photoUrl: String?,
     @SerialName("username")
-    val username: String
+    val username: String?
 )

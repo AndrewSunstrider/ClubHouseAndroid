@@ -14,9 +14,9 @@ fun AuthorisationResponse.toDomain() = Authorisation(
     isWaitlisted = isWaitlisted,
     userProfile = User(
         userId = userProfile.userId,
-        name = userProfile.name,
+        name = userProfile.name ?: "",
         photoUrl = userProfile.photoUrl ?: "",
-        username = userProfile.username
+        username = userProfile.username ?: ""
     )
 )
 
@@ -30,16 +30,16 @@ fun List<ChannelResponse>.toDomain(): List<Channel> {
                 creatorUserProfileId = response.creatorUserProfileId,
                 hasBlockedSpeakers = response.hasBlockedSpeakers,
                 isExploreChannel = response.isExploreChannel,
-                isHandraiseEnabled = response.isHandraiseEnabled,
+                isHandraiseEnabled = response.isHandraiseEnabled ?: false,
                 isPrivate = response.isPrivate,
                 isSocialMode = response.isSocialMode,
                 numAll = response.numAll,
                 numOther = response.numOther,
                 numSpeakers = response.numSpeakers,
-                pubnubHeartbeatInterval = response.pubnubHeartbeatInterval,
-                pubnubToken = response.pubnubToken,
-                token = response.token,
-                title = response.topic,
+                pubnubHeartbeatInterval = response.pubnubHeartbeatInterval ?: -1,
+                pubnubToken = response.pubnubToken ?: -1,
+                token = response.token ?: "",
+                title = response.topic ?: "",
                 url = response.url,
                 users = response.users.toUsers()
             )
@@ -53,18 +53,18 @@ fun List<ChannelUserResponse>.toUsers(): List<ChannelUser> {
     this.forEach { response ->
         users.add(
             ChannelUser(
-                firstName = response.firstName,
+                firstName = response.firstName ?: "",
                 isSpeaker = response.isSpeaker,
-                isFollowedBySpeaker = response.isFollowedBySpeaker,
-                isInvitedAsSpeaker = response.isInvitedAsSpeaker,
+                isInvitedAsSpeaker = response.isInvitedAsSpeaker ?: false,
                 isModerator = response.isModerator,
-                isMuted = response.isMuted,
-                isNew = response.isNew,
-                timeJoinedAsSpeaker = response.timeJoinedAsSpeaker,
+                isMuted = response.isMuted ?: false,
+                isNew = response.isNew ?: false,
+                timeJoinedAsSpeaker = response.timeJoinedAsSpeaker ?: "",
                 name = response.name,
                 photoUrl = response.photoUrl,
                 userID = response.userID,
-                username = response.username
+                username = response.username ?: "",
+                isFollowedBySpeaker = response.isFollwedBySpeaker ?: false
             )
         )
     }
