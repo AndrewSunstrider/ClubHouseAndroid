@@ -41,7 +41,7 @@ class ChannelsActivity : AppCompatActivity(), DIAware {
             ChannelsScreenState.Launching -> { }
             is ChannelsScreenState.Success -> {
                 showChannels(state.value)
-                logger.i("Success -> Channels Activity running.")
+                logger.d("Success -> Channels Activity running.")
             }
             is ChannelsScreenState.Failed -> logger.e("Error -> ${state.reason}")
             else -> throw IllegalArgumentException("Unknown type for $state.")

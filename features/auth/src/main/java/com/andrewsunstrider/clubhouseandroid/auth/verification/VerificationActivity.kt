@@ -42,7 +42,7 @@ class VerificationActivity : AppCompatActivity(), DIAware {
     private fun render(state: VerificationScreenState) {
         when (state) {
             VerificationScreenState.Idle -> launch()
-            VerificationScreenState.Success -> logger.i("Success -> Verification Activity running.")
+            VerificationScreenState.Success -> logger.d("Success -> Verification Activity running.")
             is VerificationScreenState.Failed -> logger.e("Error -> ${state.error}")
             is VerificationScreenState.ShowChannelsScreen -> proceedToChannels()
             else -> throw IllegalArgumentException("Unknown type for $state.")
