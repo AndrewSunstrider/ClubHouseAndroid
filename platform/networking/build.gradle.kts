@@ -4,8 +4,8 @@ plugins {
 }
 
 dependencies {
-    implementation(project(":platform:logger"))
-    implementation(project(":platform:domain"))
+    implementation(project(Modules.PLATFORM_DOMAIN))
+    implementation(project(Modules.PLATFORM_LOGGER))
 
     implementation(Libraries.kotlinStdlib)
     implementation(Libraries.kotlinSerializationCore)
@@ -17,7 +17,7 @@ dependencies {
     implementation(Libraries.coroutinesCore)
     implementation(Libraries.kodein)
 
-    testImplementation(project(":platform:coroutines-testutils"))
+    testImplementation(project(Modules.PLATFORM_COROUTINES_TEST_UTILS))
     testImplementation(Libraries.jUnit)
     testImplementation(Libraries.assertj)
     testImplementation(Libraries.burster)

@@ -7,8 +7,7 @@ dependencies {
     implementation(Libraries.kotlinStdlib)
     implementation(Libraries.coroutinesCore)
 
-    // TODO: 26.03.2021 Use constants for dependencies
-    testImplementation(project(":platform:coroutines-testutils"))
+    testImplementation(project(Modules.PLATFORM_COROUTINES_TEST_UTILS))
     testImplementation(Libraries.jUnit)
     testImplementation(Libraries.assertj)
     testImplementation(Libraries.burster)

@@ -4,7 +4,7 @@ plugins {
 }
 
 dependencies {
-    implementation(project(":platform:shared-assets"))
+    implementation(project(Modules.PLATFORM_SHARED_ASSETS))
 
     implementation(Libraries.kotlinStdlib)
     implementation(Libraries.kodein)
