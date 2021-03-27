@@ -21,4 +21,8 @@ interface AuthorisationProvider {
     fun setPhoneNumber(phoneNumber: String)
 
     fun getPhoneNumber(): String
+
+    fun getLanguages(): String
+
+    fun getLocale(): String
 }

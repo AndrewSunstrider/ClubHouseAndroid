@@ -1,10 +1,11 @@
 package com.andrewsunstrider.clubhouseandroid.persistence
 
+import android.app.Application
 import android.content.SharedPreferences
 import com.andrewsunstrider.clubhouseandroid.domain.AuthorisationProvider
 import java.util.*
 
-class AuthorisationInfrastructure(private val prefs: SharedPreferences) : AuthorisationProvider {
+class AuthorisationInfrastructure(private val prefs: SharedPreferences,private val app: Application) : AuthorisationProvider {
 
     override fun getUserID(): String {
         return prefs.getString(USER_ID, EMPTY_STRING)!!
@@ -58,6 +59,13 @@ class AuthorisationInfrastructure(private val prefs: SharedPreferences) : Author
     }
 
     override fun getPhoneNumber() = prefs.getString(PHONE_NUMBER, EMPTY_STRING)!!
+
+    override fun getLanguages(): String =
+        app.applicationContext.resources.configuration.locales.toLanguageTags()
+
+    override fun getLocale(): String =
+        app.applicationContext.resources.configuration.locales.get(0).toLanguageTag()
+            .replace('-', '_')
 
     override fun setPhoneNumber(phoneNumber: String) {
         prefs.edit().apply {
