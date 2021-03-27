@@ -43,7 +43,6 @@ class AuthActivity : AppCompatActivity(), DIAware {
     private fun render(state: AuthScreenState) {
         when (state) {
             AuthScreenState.Idle -> launch()
-            // TODO: 26.03.2021 Replace logger.i on logger.d
             AuthScreenState.Success -> logger.d("Success -> Auth Activity running.")
             is AuthScreenState.Failed -> logger.e("Error -> ${state.reason}")
             AuthScreenState.ShowVerification -> proceedToVerification()

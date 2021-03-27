@@ -44,7 +44,6 @@
                 app:layout_constraintTop_toBottomOf="@id/channel_title"
                 tools:background="@drawable/avatar_placeholder" />
 
-            <!--TODO: Refactor constraints-->
             <ImageView
                 android:id="@+id/speaker_avatar_second"
                 android:layout_width="@dimen/dp_40"
