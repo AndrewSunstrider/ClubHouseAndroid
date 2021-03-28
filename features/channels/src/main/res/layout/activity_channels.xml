@@ -18,37 +18,23 @@
             android:id="@+id/search_cl"
             android:layout_width="@dimen/dp_0"
             android:layout_height="wrap_content"
-            android:layout_marginStart="@dimen/dp_16"
-            android:layout_marginEnd="@dimen/dp_16"
+            android:layout_marginStart="@dimen/dp_24"
+            android:layout_marginEnd="@dimen/dp_24"
             android:background="@android:color/transparent"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toStartOf="@id/channels_user_avatar"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent">
 
-            <ImageView
-                android:id="@+id/img_search"
-                android:layout_width="@dimen/dp_28"
-                android:layout_height="@dimen/dp_28"
-                android:layout_marginStart="@dimen/dp_16"
-                android:layout_marginTop="@dimen/dp_12"
-                android:layout_marginBottom="@dimen/dp_12"
-                android:background="@color/white"
-                android:contentDescription="@string/ic_search_description"
-                android:paddingStart="@dimen/dp_4"
-                android:paddingEnd="@dimen/dp_4"
-                android:src="@drawable/ic_search"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent" />
-
             <EditText
                 android:id="@+id/edit_search"
                 android:layout_width="@dimen/dp_0"
-                android:layout_height="@dimen/dp_28"
-                android:layout_marginEnd="@dimen/dp_16"
-                android:background="@color/white"
+                android:layout_height="@dimen/dp_32"
+                android:background="@drawable/bg_rounded_search_field"
+                android:drawableStart="@drawable/ic_search"
+                android:drawablePadding="@dimen/dp_8"
                 android:fontFamily="@font/inter_500"
+                android:hint="@string/search_hint"
                 android:maxLines="1"
                 android:paddingStart="@dimen/dp_4"
                 android:paddingEnd="@dimen/dp_4"
@@ -57,7 +43,7 @@
                 android:textSize="@dimen/text_size_14"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toEndOf="@+id/img_search"
+                app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
         </androidx.constraintlayout.widget.ConstraintLayout>
 
@@ -65,7 +51,7 @@
             android:id="@+id/channels_user_avatar"
             android:layout_width="@dimen/dp_36"
             android:layout_height="@dimen/dp_36"
-            android:layout_marginEnd="@dimen/dp_16"
+            android:layout_marginEnd="@dimen/dp_24"
             android:contentDescription="@string/user_avatar_description"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"

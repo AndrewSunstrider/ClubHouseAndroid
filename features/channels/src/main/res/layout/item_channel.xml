@@ -30,6 +30,9 @@
                 android:layout_marginStart="@dimen/dp_16"
                 android:layout_marginTop="@dimen/dp_8"
                 android:layout_marginEnd="@dimen/dp_16"
+                android:fontFamily="@font/inter_500"
+                android:textColor="@color/black"
+                android:textSize="@dimen/text_size_16"
                 app:layout_constraintTop_toTopOf="parent"
                 tools:text="Channel title" />
 
@@ -62,6 +65,9 @@
                 android:layout_height="wrap_content"
                 android:layout_marginStart="@dimen/dp_32"
                 android:layout_marginEnd="@dimen/dp_32"
+                android:fontFamily="@font/inter_500"
+                android:textColor="@color/black"
+                android:textSize="@dimen/text_size_14"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toEndOf="@id/speaker_avatar_second"
                 app:layout_constraintTop_toTopOf="@id/speaker_avatar_first"

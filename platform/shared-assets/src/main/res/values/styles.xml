@@ -2,7 +2,9 @@
 <resources>
 
     <!-- Base application theme. -->
-    <style name="ClubHouseAndroid" parent="Theme.MaterialComponents.Light.NoActionBar" />
+    <style name="ClubHouseAndroid" parent="Theme.MaterialComponents.Light.NoActionBar">
+        <item name="android:colorEdgeEffect">@color/gray_600_alpha_10</item>
+    </style>
 
     <!-- region Auth-->
     <style name="AuthTextViewsStyle">
