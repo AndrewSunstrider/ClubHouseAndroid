@@ -3,6 +3,7 @@ package com.andrewsunstrider.clubhouseandroid.channels
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.lifecycleScope
+import androidx.recyclerview.widget.LinearLayoutManager
 import com.andrewsunstrider.clubhouseandroid.channels.databinding.ActivityChannelsBinding
 import com.andrewsunstrider.clubhouseandroid.logger.Logger
 import com.andrewsunstrider.clubhouseandroid.navigator.Navigator
@@ -27,8 +28,6 @@ class ChannelsActivity : AppCompatActivity(), DIAware {
         super.onCreate(savedInstanceState)
         setContentView(viewBindings.root)
 
-        initListeners()
-
         lifecycleScope.launch {
             delay(1000)
             viewModel.bind().collect { render(it) }
@@ -38,7 +37,12 @@ class ChannelsActivity : AppCompatActivity(), DIAware {
     private fun render(state: ChannelsScreenState) {
         when (state) {
             ChannelsScreenState.Idle -> launch()
-            ChannelsScreenState.Success -> logger.i("Success -> Channels Activity running.")
+            // TODO: 25.03.2021 Add progress logic
+            ChannelsScreenState.Launching -> { }
+            is ChannelsScreenState.Success -> {
+                showChannels(state.value)
+                logger.d("Success -> Channels Activity running.")
+            }
             is ChannelsScreenState.Failed -> logger.e("Error -> ${state.reason}")
             else -> throw IllegalArgumentException("Unknown type for $state.")
         }
@@ -48,7 +52,10 @@ class ChannelsActivity : AppCompatActivity(), DIAware {
         viewModel.handleApplicationLaunch()
     }
 
-    private fun initListeners() {
-
+    private fun showChannels(presentation: List<ChannelDisplayRow>) {
+        viewBindings.run {
+            channelsRv.layoutManager = LinearLayoutManager(this@ChannelsActivity)
+            channelsRv.adapter = ChannelsAdapter(presentation) { /* click listener callback */ }
+        }
     }
 }

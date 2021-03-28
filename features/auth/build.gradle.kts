@@ -4,11 +4,11 @@ plugins {
 }
 
 dependencies {
-    implementation(project(":platform:logger"))
-    implementation(project(":platform:domain"))
-    implementation(project(":platform:shared-assets"))
-    implementation(project(":platform:shared-utilities"))
-    implementation(project(":platform:navigator"))
+    implementation(project(Modules.PLATFORM_DOMAIN))
+    implementation(project(Modules.PLATFORM_LOGGER))
+    implementation(project(Modules.PLATFORM_NAVIGATOR))
+    implementation(project(Modules.PLATFORM_SHARED_ASSETS))
+    implementation(project(Modules.PLATFORM_SHARED_UTILITIES))
 
     implementation(Libraries.kotlinStdlib)
     implementation(Libraries.kodein)
@@ -21,7 +21,7 @@ dependencies {
     implementation(Libraries.appCompat)
     implementation(Libraries.materialDesign)
 
-    testImplementation(project(":platform:coroutines-testutils"))
+    testImplementation(project(Modules.PLATFORM_COROUTINES_TEST_UTILS))
     testImplementation(Libraries.jUnit)
     testImplementation(Libraries.assertj)
     testImplementation(Libraries.turbine)

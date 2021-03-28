@@ -11,9 +11,8 @@ class APIRequestInterceptor(
 
     override fun intercept(chain: Interceptor.Chain): Response {
         val builder: Request.Builder = chain.request().newBuilder().apply {
-            // TODO: 20.03.2021 add locale in normal way
-            addHeader("CH-Languages", "en-US")
-            addHeader("CH-Locale", "[en_US]")
+            addHeader("CH-Languages", preferences.getLanguages())
+            addHeader("CH-Locale", preferences.getLocale())
             addHeader("Accept", "application/json")
             addHeader("CH-AppBuild", API_BUILD_ID)
             addHeader("CH-AppVersion", API_BUILD_VERSION)

@@ -2,11 +2,14 @@ package com.andrewsunstrider.clubhouseandroid.channels
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
+import com.andrewsunstrider.clubhouseandroid.domain.usecase.GetChannels
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.asStateFlow
 import kotlinx.coroutines.launch
 
-class ChannelsViewModel : ViewModel() {
+class ChannelsViewModel(
+    private val getChannels: GetChannels
+) : ViewModel() {
 
     private val states = MutableStateFlow<ChannelsScreenState>(ChannelsScreenState.Idle)
 
@@ -16,11 +19,13 @@ class ChannelsViewModel : ViewModel() {
         viewModelScope.launch {
             states.value = ChannelsScreenState.Launching
             try {
-                //I don't use it there, left it here as example how to work with states of the following activities.
-                states.value = ChannelsScreenState.Success
+                states.value = ChannelsScreenState.Success(getChannels())
             } catch (error: Throwable) {
                 states.value = ChannelsScreenState.Failed(error)
             }
         }
     }
+
+    private suspend fun getChannels(): List<ChannelDisplayRow> = getChannels.getChannels()
+        .map { ChannelDisplayRow(it) }
 }

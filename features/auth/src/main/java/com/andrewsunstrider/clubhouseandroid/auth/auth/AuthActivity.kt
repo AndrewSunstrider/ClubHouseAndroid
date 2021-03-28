@@ -43,7 +43,7 @@ class AuthActivity : AppCompatActivity(), DIAware {
     private fun render(state: AuthScreenState) {
         when (state) {
             AuthScreenState.Idle -> launch()
-            AuthScreenState.Success -> logger.i("Success -> Auth Activity running.")
+            AuthScreenState.Success -> logger.d("Success -> Auth Activity running.")
             is AuthScreenState.Failed -> logger.e("Error -> ${state.reason}")
             AuthScreenState.ShowVerification -> proceedToVerification()
             else -> throw IllegalArgumentException("Unknown type for $state.")
@@ -59,11 +59,11 @@ class AuthActivity : AppCompatActivity(), DIAware {
 
         nextBtn.setOnClickListener {
             viewModel.getAuth(getCleanPhoneNumber())
-            logger.i("Number is ${getCleanPhoneNumber()}")
+            logger.d("Number is ${getCleanPhoneNumber()}")
         }
     }
 
-    fun getCleanPhoneNumber(): String {
+    private fun getCleanPhoneNumber(): String {
         val phoneInput = findViewById<EditText>(R.id.phone_number_field)
 
         val number = phoneInput.text.toString().replace("[^\\d]".toRegex(), "")

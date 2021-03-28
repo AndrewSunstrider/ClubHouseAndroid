@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="user_avatar_description">Click to move on user profile screen.</string>
+    <string name="ic_search_description">Click to searching.</string>
+    <string name="speaker_avatar_description">Speaker avatar image.</string>
+    <!-- TODO: Use ASCII code-->
+    <string name="speaker_name">%1$s 💬</string>
+    <string name="search_hint">Tap to search channel</string>
+</resources>

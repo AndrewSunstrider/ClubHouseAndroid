@@ -75,17 +75,17 @@ android {
 }
 
 dependencies {
-    implementation(project(":features:auth"))
-    implementation(project(":features:channels"))
+    implementation(project(Modules.FEATURE_AUTH))
+    implementation(project(Modules.FEATURE_CHANNELS))
 
-    implementation(project(":platform:domain"))
-    implementation(project(":platform:logger"))
-    implementation(project(":platform:navigator"))
-    implementation(project(":platform:networking"))
-    implementation(project(":platform:persistence"))
-    implementation(project(":platform:rest-clubhouse"))
-    implementation(project(":platform:shared-assets"))
-    implementation(project(":platform:shared-utilities"))
+    implementation(project(Modules.PLATFORM_DOMAIN))
+    implementation(project(Modules.PLATFORM_LOGGER))
+    implementation(project(Modules.PLATFORM_NAVIGATOR))
+    implementation(project(Modules.PLATFORM_NETWORKING))
+    implementation(project(Modules.PLATFORM_PERSISTENCE))
+    implementation(project(Modules.PLATFORM_REST_CLUBHOUSE))
+    implementation(project(Modules.PLATFORM_SHARED_ASSETS))
+    implementation(project(Modules.PLATFORM_SHARED_UTILITIES))
 
     implementation(Libraries.kotlinStdlib)
     implementation(Libraries.appCompat)

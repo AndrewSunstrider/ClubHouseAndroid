@@ -5,9 +5,9 @@ plugins {
 }
 
 dependencies {
-    implementation(project(":platform:logger"))
-    implementation(project(":platform:domain"))
-    implementation(project(":platform:networking"))
+    implementation(project(Modules.PLATFORM_DOMAIN))
+    implementation(project(Modules.PLATFORM_LOGGER))
+    implementation(project(Modules.PLATFORM_NETWORKING))
 
     implementation(Libraries.kotlinStdlib)
     implementation(Libraries.okhttp)
@@ -18,7 +18,7 @@ dependencies {
     implementation(Libraries.coroutinesCore)
     implementation(Libraries.kodein)
 
-    testImplementation(project(":platform:coroutines-testutils"))
+    testImplementation(project(Modules.PLATFORM_COROUTINES_TEST_UTILS))
     testImplementation(Libraries.jUnit)
     testImplementation(Libraries.assertj)
     testImplementation(Libraries.burster)

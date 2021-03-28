@@ -16,7 +16,7 @@ val channelsModule = DI.Module("channels") {
         @Suppress("UNCHECKED_CAST") val factory = object : ViewModelProvider.Factory {
 
             override fun <VM : ViewModel> create(klass: Class<VM>) =
-                ChannelsViewModel() as VM
+                ChannelsViewModel(getChannels = instance()) as VM
         }
 
         val host: FragmentActivity = instance(KodeinTags.hostActivity)

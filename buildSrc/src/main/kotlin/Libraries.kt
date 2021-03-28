@@ -18,6 +18,10 @@ object Libraries {
     const val activityExtensions = "androidx.activity:activity-ktx:${Versions.activityX}"
     const val swipeToRefresh = "androidx.swiperefreshlayout:swiperefreshlayout:1.1.0"
 
+    const val constraintLayout = "androidx.constraintlayout:constraintlayout:${Versions.constraintLayout}"
+
+    const val coil = "io.coil-kt:coil:${Versions.coil}"
+
     const val coreAndroidx = "androidx.core:core-ktx:${Versions.coreAndroidx}"
     const val materialDesign = "com.google.android.material:material:${Versions.materialDesign}"
     const val lifecycleRuntime = "androidx.lifecycle:lifecycle-runtime-ktx:${Versions.lifecycle}"
@@ -68,5 +72,7 @@ object Libraries {
         const val espresso = "3.3.0"
         const val roboletric = "4.4"
         const val barista = "3.6.0"
+        const val constraintLayout = "2.0.4"
+        const val coil = "1.1.1"
     }
 }

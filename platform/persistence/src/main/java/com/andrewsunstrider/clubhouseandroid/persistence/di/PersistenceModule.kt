@@ -15,6 +15,6 @@ val persistenceModule = DI.Module("persistence") {
             app = instance()
         )
 
-        AuthorisationInfrastructure(wrapper.preferences)
+        AuthorisationInfrastructure(wrapper.preferences, app = instance())
     }
 }
