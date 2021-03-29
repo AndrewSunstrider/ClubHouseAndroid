@@ -16,6 +16,7 @@ class GetChannelsTests {
 
     private lateinit var usecase: GetChannels
 
+    // TODO: 29.03.2021 change to Mock lib
     class FakeChannelsService(
         private val fakeChannels: List<Channel>
     ) : ChannelsService {
@@ -32,9 +33,9 @@ class GetChannelsTests {
     @Test
     fun `get channels data from remote`() {
         runBlocking {
-            val input = usecase.getChannels()
-            val output = channelsData
-            assertThat(input).isEqualTo(output)
+            val output = usecase.getChannels()
+            val input = channelsData
+            assertThat(output).isEqualTo(input)
         }
     }
 }
