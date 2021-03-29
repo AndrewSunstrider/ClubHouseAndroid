@@ -5,7 +5,10 @@ import android.content.SharedPreferences
 import com.andrewsunstrider.clubhouseandroid.domain.AuthorisationProvider
 import java.util.*
 
-class AuthorisationInfrastructure(private val prefs: SharedPreferences,private val app: Application) : AuthorisationProvider {
+class AuthorisationInfrastructure(
+    private val prefs: SharedPreferences,
+    private val app: Application
+) : AuthorisationProvider {
 
     override fun getUserID(): String {
         return prefs.getString(USER_ID, EMPTY_STRING)!!
