@@ -1,7 +1,6 @@
 package com.andrewsunstrider.clubhouseandroid.domain
 
 
-import com.andrewsunstrider.clubhouseandroid.domain.errors.NetworkingError
 import com.andrewsunstrider.clubhouseandroid.domain.model.Channel
 import com.andrewsunstrider.clubhouseandroid.domain.services.ChannelsService
 import com.andrewsunstrider.clubhouseandroid.domain.usecase.GetChannels
@@ -12,8 +11,6 @@ import org.junit.Test
 
 
 class GetChannelsTests {
-
-    private lateinit var channelsService: ChannelsService
 
     private val channelsData = ChannelFactory.makeChannels()
 
@@ -33,28 +30,11 @@ class GetChannelsTests {
     }
 
     @Test
-    fun `should fetch from remote`() {
+    fun `get channels data from remote`() {
         runBlocking {
-            `given that remote service returns channels`()
-            `given that remote service not available`()
-
-            val usecase = GetChannels(channelsService)
-
-            assertThat(usecase.getChannels()).isEqualTo(channelsData)
-        }
-    }
-
-    private fun `given that remote service returns channels`() {
-        channelsService = object : ChannelsService {
-            override suspend fun availableChannels(): List<Channel> = channelsData
-        }
-    }
-
-    private fun `given that remote service not available`() {
-        channelsService = object : ChannelsService {
-            override suspend fun availableChannels(): List<Channel> {
-                throw NetworkingError.HostUnreachable
-            }
+            val input = usecase.getChannels()
+            val output = channelsData
+            assertThat(input).isEqualTo(output)
         }
     }
 }

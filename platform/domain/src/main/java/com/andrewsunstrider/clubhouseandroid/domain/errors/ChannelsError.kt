@@ -1,4 +1,5 @@
 package com.andrewsunstrider.clubhouseandroid.domain.errors
 
-object ChannelsError {
+sealed class ChannelsError (message: String) : Throwable(message) {
+    object EmptyList : ChannelsError("Channels list can not be empty")
 }

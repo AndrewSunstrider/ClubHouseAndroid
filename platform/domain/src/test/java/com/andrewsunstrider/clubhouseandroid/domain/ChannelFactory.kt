@@ -8,7 +8,7 @@ object ChannelFactory {
 
     fun makeChannels(): List<Channel> {
         val channels = mutableListOf<Channel>()
-        channels.map {
+        channels.apply {
             channels.add(
                 Channel(
                     creatorUserProfileId = DomainDataFactory.randomInt(),
@@ -36,7 +36,7 @@ object ChannelFactory {
 
     private fun makeChannelUsers(): List<ChannelUser> {
         val users = mutableListOf<ChannelUser>()
-        users.map {
+        users.apply {
             users.add(
                 ChannelUser(
                     isSpeaker = DomainDataFactory.randomBoolean(),

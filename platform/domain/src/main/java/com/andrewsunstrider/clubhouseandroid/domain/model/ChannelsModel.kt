@@ -7,7 +7,7 @@ data class Channel(
     val title: String,
     val isPrivate: Boolean,
     val isSocialMode: Boolean,
-    val url: String,
+    var url: String,
     val numOther: Int,
     val hasBlockedSpeakers: Boolean,
     val isExploreChannel: Boolean,
