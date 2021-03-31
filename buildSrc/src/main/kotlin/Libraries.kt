@@ -5,33 +5,42 @@ import configs.KotlinConfig
 object Libraries {
 
     const val kotlinStdlib = "org.jetbrains.kotlin:kotlin-stdlib-jdk8:${KotlinConfig.version}"
-    const val kotlinSerializationCore = "org.jetbrains.kotlinx:kotlinx-serialization-core:${Versions.kotlinSerialization}"
-    const val kotlinSerializationJson = "org.jetbrains.kotlinx:kotlinx-serialization-json:${Versions.kotlinSerialization}"
+    const val kotlinSerializationCore =
+        "org.jetbrains.kotlinx:kotlinx-serialization-core:${Versions.kotlinSerialization}"
+    const val kotlinSerializationJson =
+        "org.jetbrains.kotlinx:kotlinx-serialization-json:${Versions.kotlinSerialization}"
 
     const val okhttp = "com.squareup.okhttp3:okhttp:${Versions.okHttp}"
     const val okhttpLogger = "com.squareup.okhttp3:logging-interceptor:${Versions.okHttp}"
     const val retrofit = "com.squareup.retrofit2:retrofit:${Versions.retrofit}"
-    const val retrofitKotlinSerialization = "com.jakewharton.retrofit:retrofit2-kotlinx-serialization-converter:${Versions.retrofitKotlinSerialization}"
+    const val retrofitKotlinSerialization =
+        "com.jakewharton.retrofit:retrofit2-kotlinx-serialization-converter:${Versions.retrofitKotlinSerialization}"
 
     const val appCompat = "androidx.appcompat:appcompat:${Versions.appCompat}"
     const val activity = "androidx.activity:activity:${Versions.activityX}"
     const val activityExtensions = "androidx.activity:activity-ktx:${Versions.activityX}"
     const val swipeToRefresh = "androidx.swiperefreshlayout:swiperefreshlayout:1.1.0"
 
-    const val constraintLayout = "androidx.constraintlayout:constraintlayout:${Versions.constraintLayout}"
+    const val constraintLayout =
+        "androidx.constraintlayout:constraintlayout:${Versions.constraintLayout}"
 
     const val coil = "io.coil-kt:coil:${Versions.coil}"
 
     const val coreAndroidx = "androidx.core:core-ktx:${Versions.coreAndroidx}"
     const val materialDesign = "com.google.android.material:material:${Versions.materialDesign}"
     const val lifecycleRuntime = "androidx.lifecycle:lifecycle-runtime-ktx:${Versions.lifecycle}"
-    const val lifecycleViewModel = "androidx.lifecycle:lifecycle-viewmodel-ktx:${Versions.lifecycle}"
+    const val lifecycleViewModel =
+        "androidx.lifecycle:lifecycle-viewmodel-ktx:${Versions.lifecycle}"
     const val lifecycleExtensions = "androidx.lifecycle:lifecycle-extensions:${Versions.lifecycle}"
 
-    const val coroutinesCore = "org.jetbrains.kotlinx:kotlinx-coroutines-core:${Versions.coroutines}"
-    const val coroutinesAndroid = "org.jetbrains.kotlinx:kotlinx-coroutines-android:${Versions.coroutines}"
-    const val coroutinesTest = "org.jetbrains.kotlinx:kotlinx-coroutines-test:${Versions.coroutines}"
-    const val coroutinesDebug = "org.jetbrains.kotlinx:kotlinx-coroutines-debug:${Versions.coroutines}"
+    const val coroutinesCore =
+        "org.jetbrains.kotlinx:kotlinx-coroutines-core:${Versions.coroutines}"
+    const val coroutinesAndroid =
+        "org.jetbrains.kotlinx:kotlinx-coroutines-android:${Versions.coroutines}"
+    const val coroutinesTest =
+        "org.jetbrains.kotlinx:kotlinx-coroutines-test:${Versions.coroutines}"
+    const val coroutinesDebug =
+        "org.jetbrains.kotlinx:kotlinx-coroutines-debug:${Versions.coroutines}"
 
     const val kodein = "org.kodein.di:kodein-di-jvm:${Versions.kodein}"
 
@@ -50,6 +59,7 @@ object Libraries {
     const val espressoCore = "androidx.test.espresso:espresso-core:${Versions.espresso}"
     const val roboletric = "org.robolectric:robolectric:${Versions.roboletric}"
     const val mockWebServer = "com.squareup.okhttp3:mockwebserver:${Versions.okHttp}"
+    const val MOCKK = "io.mockk:mockk:${Versions.mockk}"
 
     private object Versions {
         const val kotlinSerialization = "1.0.1"
@@ -74,5 +84,6 @@ object Libraries {
         const val barista = "3.6.0"
         const val constraintLayout = "2.0.4"
         const val coil = "1.1.1"
+        const val mockk = "1.10.2"
     }
 }

@@ -1,9 +1,10 @@
 package com.andrewsunstrider.clubhouseandroid.domain
 
 
-import com.andrewsunstrider.clubhouseandroid.domain.model.Channel
 import com.andrewsunstrider.clubhouseandroid.domain.services.ChannelsService
 import com.andrewsunstrider.clubhouseandroid.domain.usecase.GetChannels
+import io.mockk.MockKAnnotations
+import io.mockk.impl.annotations.MockK
 import kotlinx.coroutines.runBlocking
 import org.assertj.core.api.Assertions.assertThat
 import org.junit.Before
@@ -14,20 +15,14 @@ class GetChannelsTests {
 
     private val channelsData = ChannelFactory.makeChannels()
 
+    @MockK
+    lateinit var channelService: ChannelsService
     private lateinit var usecase: GetChannels
-
-    // TODO: 29.03.2021 change to Mock lib
-    class FakeChannelsService(
-        private val fakeChannels: List<Channel>
-    ) : ChannelsService {
-
-        override suspend fun availableChannels(): List<Channel> = fakeChannels
-    }
 
     @Before
     fun `before each test`() {
-        val service = FakeChannelsService(channelsData)
-        usecase = GetChannels(service)
+        MockKAnnotations.init(this)
+        usecase = GetChannels(channelService)
     }
 
     @Test
@@ -35,6 +30,7 @@ class GetChannelsTests {
         runBlocking {
             val output = usecase.getChannels()
             val input = channelsData
+
             assertThat(output).isEqualTo(input)
         }
     }
