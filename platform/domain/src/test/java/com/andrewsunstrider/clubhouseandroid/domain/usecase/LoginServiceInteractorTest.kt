@@ -14,7 +14,7 @@ import org.junit.Test
 
 class LoginServiceInteractorTest {
 
-    @MockK(relaxed = true)
+    @MockK
     lateinit var service: AuthService
 
     @MockK(relaxed = true)
@@ -45,17 +45,6 @@ class LoginServiceInteractorTest {
             service.sendCode(
                 verificationCode = verificationCode,
                 phoneNumber = phoneNumber
-            )
-        } returns response
-
-        coEvery {
-            authorisationProvider.saveUserID(response.userProfile.userId.toString())
-        }
-
-        coEvery {
-            service.sendCode(
-                phoneNumber = phoneNumber,
-                verificationCode = verificationCode
             )
         } returns response
 

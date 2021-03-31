@@ -1,8 +1,8 @@
 package com.andrewsunstrider.clubhouseandroid.domain.usecase
 
 
+import com.andrewsunstrider.clubhouseandroid.domain.factory.ChannelFactory
 import com.andrewsunstrider.clubhouseandroid.domain.services.ChannelsService
-import com.andrewsunstrider.clubhouseandroid.domain.usecase.GetChannels
 import io.mockk.MockKAnnotations
 import io.mockk.impl.annotations.MockK
 import kotlinx.coroutines.runBlocking
