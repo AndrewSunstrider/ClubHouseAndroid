@@ -1,4 +1,4 @@
-package com.andrewsunstrider.clubhouseandroid.domain
+package com.andrewsunstrider.clubhouseandroid.domain.usecase
 
 
 import com.andrewsunstrider.clubhouseandroid.domain.services.ChannelsService

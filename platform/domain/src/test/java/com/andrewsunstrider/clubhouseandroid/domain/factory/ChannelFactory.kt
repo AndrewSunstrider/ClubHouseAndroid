@@ -1,4 +1,4 @@
-package com.andrewsunstrider.clubhouseandroid.domain
+package com.andrewsunstrider.clubhouseandroid.domain.factory
 
 import com.andrewsunstrider.clubhouseandroid.domain.model.Channel
 import com.andrewsunstrider.clubhouseandroid.domain.model.ChannelUser
