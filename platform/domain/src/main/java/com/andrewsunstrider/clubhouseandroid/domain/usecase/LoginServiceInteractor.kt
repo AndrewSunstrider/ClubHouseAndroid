@@ -18,7 +18,7 @@ class LoginServiceInteractor(
         if (phoneNumber.isEmpty()) throw NullPointerException("Phone number is empty")
 
         val response = service.sendCode(phoneNumber, verificationCode)
-        authorisationProvider.apply {
+        with(authorisationProvider) {
             saveUserID(response.userProfile.userId.toString())
             saveUserToken(response.authToken)
             saveIsWaitListed(response.isWaitlisted)

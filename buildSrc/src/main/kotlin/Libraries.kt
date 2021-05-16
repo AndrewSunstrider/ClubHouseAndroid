@@ -50,6 +50,7 @@ object Libraries {
     const val espressoCore = "androidx.test.espresso:espresso-core:${Versions.espresso}"
     const val roboletric = "org.robolectric:robolectric:${Versions.roboletric}"
     const val mockWebServer = "com.squareup.okhttp3:mockwebserver:${Versions.okHttp}"
+    const val MOCKK = "io.mockk:mockk:${Versions.mockk}"
 
     private object Versions {
         const val kotlinSerialization = "1.0.1"
@@ -74,5 +75,6 @@ object Libraries {
         const val barista = "3.6.0"
         const val constraintLayout = "2.0.4"
         const val coil = "1.1.1"
+        const val mockk = "1.10.2"
     }
 }
